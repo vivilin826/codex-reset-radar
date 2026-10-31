@@ -8,6 +8,7 @@
   /* 自包含样式：状态标签 + 折叠按钮（不依赖页面 CSS） */
   const style = document.createElement('style');
   style.textContent =
+    '.rv-row{display:block;}' +
     '.rv-more{display:flex;align-items:center;gap:5px;margin:2px auto 14px;padding:7px 16px;font-size:13px;font-weight:700;color:#D99A2B;background:#FFF7E4;border:1px solid #F0E3CE;border-radius:999px;cursor:pointer;-webkit-tap-highlight-color:transparent;}' +
     '.rv-chip{display:inline-block;font-size:11px;font-weight:700;line-height:1;padding:4px 8px;border-radius:999px;margin-right:7px;vertical-align:1.5px;}' +
     '.rv-chip--pending{background:#FCE8C2;color:#D99A2B;}' +
