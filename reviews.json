@@ -1,0 +1,4 @@
+{
+  "approved": [],
+  "_instructions": "New posts go to site/data/radar.json review_queue; manually verify original link, timing, plans, reset type, then put approved entries here. Add homepage forecast/status only after independently verified. Do not guess actual individual quota times."
+}
