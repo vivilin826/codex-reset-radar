@@ -48,7 +48,7 @@
     const response=await fetch('data/radar.json',{cache:'no-store'}); if(!response.ok)throw new Error('HTTP '+response.status);
     const data=await response.json(), p=data.pipeline||{};
     const lag=p.state!=='ok'||!p.last_success_at||Date.now()-Date.parse(p.last_success_at)>2*3600000;
-    banner.textContent=(lag?'自动采集数据延迟（最近尝试 ':'自动采集正常（最近尝试 ')+time(p.last_attempt_at)+'；最近成功 '+time(p.last_success_at)+'）。待核验消息不代表已重置。';
+    banner.textContent=(lag?'自动采集数据延迟（最近尝试 ':'自动采集正常（最近尝试 ')+time(p.last_attempt_at)+'；最近成功 '+time(p.last_success_at)+'）。具体到账以账号显示为准。';
     document.getElementById('top-updated').textContent='采集 '+time(p.last_attempt_at);
     document.getElementById('hero-time').textContent='历史判断，非实时确认';
     // Only explicit reviewed projections may replace the historical hero.
@@ -59,34 +59,28 @@
       document.getElementById('source-link').href=reviewed.source_url;
     }
     document.getElementById('judgment').textContent='历史预告，尚无新的核验确认；日期窗口可能已过期。以个人 Usage 为准。';
-    const CHIP = {
-      pending:   ['待兑现',   'rv-chip--pending'],
-      fulfilled: ['已兑现',   'rv-chip--fulfilled'],
-      observed:  ['社区实测', 'rv-chip--observed']
-    };
-    const predictions=panel('历史预测与兑现记录','每条 = 一次预告的窗口与结果；自动采集不会把预测改成已兑现。');
-    for(const x of data.predictions||[]){
-      const c = CHIP[x.status] || CHIP.pending;
-      row(predictions, x.headline,
-        [x.window + (x.actual_kind ? ' · ' + x.actual_kind : '') + (x.actual_at ? ' · 确认于 ' + time(x.actual_at) : ' · 尚无确认时间'), {url:x.source_url, label:'查看原帖'}],
-        chip(c[0], c[1]));
+    const labels = { pending:['待确认','rv-chip--pending'], fulfilled:['已兑现','rv-chip--fulfilled'], observed:['第三方记录','rv-chip--observed'], conditional:['活动规则','rv-chip--queue'] };
+    const combined=panel('重置预告与兑现记录','按照时间查看：预告了什么、什么时候发生，以及结果是否有证据。北京时间；到账以个人账号为准。');
+    const records=[], matched=new Set();
+    for (const x of data.predictions||[]) {
+      if(x.source_url) matched.add(x.source_url);
+      if(x.confirmation_url) matched.add(x.confirmation_url);
+      const c=labels[x.status]||['待确认','rv-chip--pending'];
+      const parts=['预告时间：'+time(x.created_at)+'；预计：'+(x.window||'未公布')+'。', {url:x.source_url,label:'预告来源'}, '　结果：'+(x.actual_kind||'尚无确认信息')+(x.actual_at?'（'+time(x.actual_at)+'）':'。')];
+      if(x.confirmation_url) parts.push({url:x.confirmation_url,label:'结果来源'});
+      records.push({date:x.created_at||'',title:x.headline,parts,chip:c});
     }
-    collapse(predictions, 5);
-    const events=panel('历史证据时间线','第三方观察与官方确认分开记录；帖子时间不代表到账时间。');
-    for(const x of data.events||[]){
-      row(events, x.title,
-        [time(x.published_at) + (x.status_label ? ' · ' + x.status_label : ''), {url:x.source_url, label:'查看原帖'}],
-        null);
+    for (const x of data.events||[]) {
+      if(x.source_url && matched.has(x.source_url)) continue;
+      const c=x.status==='confirmed'?['历史确认','rv-chip--fulfilled']:x.status==='observed'?['第三方记录','rv-chip--observed']:['历史公告','rv-chip--pending'];
+      records.push({date:x.published_at||'',title:x.title,parts:['记录时间：'+time(x.published_at)+'；'+(x.status_label||'')+'。'+(x.summary||'')+' ',{url:x.source_url,label:'查看来源'}],chip:c});
     }
-    collapse(events, 5);
-    const queue=panel('自动采集 · 待核验消息','以下仅是采集到的候选消息，不是新的重置确认；点"查看原帖"核实。');
-    const qs = data.review_queue||[];
-    if(!qs.length) row(queue,'尚无候选消息','采集失败时保留旧数据，不推断没有新消息。',null);
-    for(const x of qs){
-      const short = (x.text||'').length > 60 ? (x.text||'').slice(0,60) + '…' : (x.text||'');
-      row(queue, time(x.published_at), [short, {url:x.url, label:'查看原帖'}], chip('待核验','rv-chip--queue'));
-    }
-    collapse(queue, 5);
+    records.sort((a,b)=>b.date.localeCompare(a.date));
+    for(const x of records) row(combined,x.title,x.parts,chip(x.chip[0],x.chip[1]));
+    collapse(combined,5);
+    document.getElementById('history').hidden=true;
+    const statsDesc=document.querySelector('#history').closest('.panel').querySelector('.panel-sub');
+    if(statsDesc) statsDesc.textContent='历史人工统计，非官方数字；下方可查看预告与结果。';
     if(lag)document.getElementById('status-label').textContent='数据延迟 · 待核验';
   } catch(e) {banner.textContent='自动采集数据暂时无法加载，保留历史页面；不能据此判断是否已重置。';document.getElementById('status-label').textContent='数据延迟 · 待核验';}
 })();
