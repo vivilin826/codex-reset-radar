@@ -19,7 +19,7 @@
   const chip = (label, cls) => { const s = document.createElement('span'); s.className = 'rv-chip ' + cls; s.textContent = label; return s; };
   const row = (box, title, descParts, chipEl) => {
     const d = text(box,'div','','rule rv-row');
-    d.style.display = 'block';
+    
     const t = text(d,'div','','rule-title');
     if(chipEl) t.append(chipEl);
     t.append(document.createTextNode(title));
@@ -33,7 +33,7 @@
   const collapse = (box, limit) => {
     const rows = box.querySelectorAll('.rv-row');
     if(rows.length <= limit) return;
-    style.textContent += '.rv-collapsed .rv-row:nth-child(n+' + (limit + 1) + '){display:none;}';
+    style.textContent += '.rv-collapsed .rv-row:nth-child(n+' + (limit + 1) + '){display:none !important;}';
     box.classList.add('rv-collapsed');
     const btn = text(box,'button','展开全部（' + rows.length + ' 条）','rv-more');
     btn.addEventListener('click', () => {
@@ -42,7 +42,7 @@
       btn.textContent = open ? '收起' : '展开全部（' + rows.length + ' 条）';
     });
   };
-  const panel = (title, sub) => {const s=text(main,'section','','panel');text(s,'h2',title,'panel-title cute');text(s,'p',sub,'panel-sub');return text(s,'div','','rules');};
+  const panel = (title, sub) => {const s=text(main,'section','','panel'); main.insertBefore(s, main.querySelector('.follow')); text(s,'h2',title,'panel-title cute');text(s,'p',sub,'panel-sub');return text(s,'div','','rules');};
   try {
     const response=await fetch('data/radar.json',{cache:'no-store'}); if(!response.ok)throw new Error('HTTP '+response.status);
     const data=await response.json(), p=data.pipeline||{};
@@ -70,14 +70,14 @@
         [x.window + (x.actual_kind ? ' · ' + x.actual_kind : '') + (x.actual_at ? ' · 确认于 ' + time(x.actual_at) : ' · 尚无确认时间'), {url:x.source_url, label:'查看原帖'}],
         chip(c[0], c[1]));
     }
-    collapse(predictions, 4);
+    collapse(predictions, 5);
     const events=panel('历史证据时间线','第三方观察与官方确认分开记录；帖子时间不代表到账时间。');
     for(const x of data.events||[]){
       row(events, x.title,
         [time(x.published_at) + (x.status_label ? ' · ' + x.status_label : ''), {url:x.source_url, label:'查看原帖'}],
         null);
     }
-    collapse(events, 4);
+    collapse(events, 5);
     const queue=panel('自动采集 · 待核验消息','以下仅是采集到的候选消息，不是新的重置确认；点"查看原帖"核实。');
     const qs = data.review_queue||[];
     if(!qs.length) row(queue,'尚无候选消息','采集失败时保留旧数据，不推断没有新消息。',null);
@@ -85,7 +85,7 @@
       const short = (x.text||'').length > 60 ? (x.text||'').slice(0,60) + '…' : (x.text||'');
       row(queue, time(x.published_at), [short, {url:x.url, label:'查看原帖'}], chip('待核验','rv-chip--queue'));
     }
-    collapse(queue, 3);
+    collapse(queue, 5);
     if(lag)document.getElementById('status-label').textContent='数据延迟 · 待核验';
   } catch(e) {banner.textContent='自动采集数据暂时无法加载，保留历史页面；不能据此判断是否已重置。';document.getElementById('status-label').textContent='数据延迟 · 待核验';}
 })();
