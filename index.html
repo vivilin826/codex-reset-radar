@@ -186,8 +186,8 @@
   }
   .tl-tag-official{background:#FCE8C2;color:var(--butter-deep);}
   .tl-tag-community{background:#D9F0E6;color:var(--mint-deep);}
-  .tl--collapsed .tl-row:nth-child(n+4){display:none;}
-  .tl--collapsed .tl-row:nth-child(3) .tl-axis::after{display:none;}
+  .tl--collapsed .tl-row:nth-child(n+6){display:none;}
+  .tl--collapsed .tl-row:nth-child(5) .tl-axis::after{display:none;}
   .tl-more{
     display:flex;align-items:center;gap:5px;
     margin:2px auto 14px;padding:7px 16px;
@@ -469,7 +469,7 @@ const CONFIG = {
         '</div>';
       }).join("");
       const moreBtn = $("tl-more");
-      if(hist.length > 3){
+      if(hist.length > 5){
         moreBtn.style.display = "flex";
         const wrap = $("history");
         wrap.classList.add("tl--collapsed");
