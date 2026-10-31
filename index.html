@@ -171,15 +171,32 @@
   .tl-row:nth-child(4n+2) .tl-dot{background:var(--mint);box-shadow:0 0 0 3px #D9F0E6;}
   .tl-row:nth-child(4n+3) .tl-dot{background:var(--peach);box-shadow:0 0 0 3px #FFE4D6;}
   .tl-row:nth-child(4n+4) .tl-dot{background:var(--pink);box-shadow:0 0 0 3px #FBE3E8;}
-  .tl-row:not(:last-child) .tl-axis::after{
+  .tl-row:not(:last-of-type) .tl-axis::after{
     content:"";position:absolute;left:calc(50% - 1px);
     top:21px;bottom:-14px;width:2px;background:var(--line);
   }
   .tl-text{
-    font-size:14px;color:var(--ink-2);padding-bottom:18px;
+    font-size:14px;color:var(--ink-2);padding-bottom:14px;
   }
-  .tl-row:last-child .tl-text{padding-bottom:14px;}
+  .tl-row:last-of-type .tl-text{padding-bottom:12px;}
   .tl-note{font-size:12px;color:var(--ink-3);margin-top:2px;}
+  .tl-tag{
+    display:inline-block;font-size:11px;font-weight:700;line-height:1;
+    padding:4px 8px;border-radius:999px;margin-right:7px;vertical-align:1.5px;
+  }
+  .tl-tag-official{background:#FCE8C2;color:var(--butter-deep);}
+  .tl-tag-community{background:#D9F0E6;color:var(--mint-deep);}
+  .tl--collapsed .tl-row:nth-child(n+4){display:none;}
+  .tl--collapsed .tl-row:nth-child(3) .tl-axis::after{display:none;}
+  .tl-more{
+    display:flex;align-items:center;gap:5px;
+    margin:2px auto 14px;padding:7px 16px;
+    font-size:13px;font-weight:700;color:var(--butter-deep);
+    background:#FFF7E4;border:1px solid #F0E3CE;border-radius:999px;
+    cursor:pointer;-webkit-tap-highlight-color:transparent;
+  }
+  .tl-more svg{flex:none;transition:transform .25s;}
+  .tl--expanded .tl-more svg{transform:rotate(180deg);}
 
   /* ===== 规律说明 ===== */
   .rules{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:6px 16px;}
@@ -293,10 +310,10 @@
       <span id="tip-text"></span>
     </section>
 
-    <!-- ===== 累计重置统计 ===== -->
+    <!-- ===== 累计重置统计 + 最近记录 ===== -->
     <section class="panel">
       <h2 class="panel-title cute">已经实现过多少次重置</h2>
-      <p class="panel-sub">从开始跟踪至今，真实落地过的重置次数</p>
+      <p class="panel-sub">真实落地过的重置次数，下方为最近记录（社区实测 + 官方宣布）</p>
       <div class="stats">
         <div class="stat-main">
           <span class="stat-num" id="stat-num">—</span>
@@ -308,13 +325,13 @@
         </div>
         <div class="stat-note" id="stat-note"></div>
       </div>
-    </section>
-
-    <!-- ===== 最近重置记录 ===== -->
-    <section class="panel">
-      <h2 class="panel-title cute">最近重置记录</h2>
-      <p class="panel-sub">社区实测与 Tibo 官宣记录，以你账号实际显示为准</p>
-      <div class="tl" id="history"></div>
+      <div class="tl" id="history">
+        <div id="tl-rows"></div>
+        <button type="button" class="tl-more" id="tl-more" aria-expanded="false">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          <span id="tl-more-text">展开全部历史</span>
+        </button>
+      </div>
     </section>
 
     <!-- ===== 重置规律说明 ===== -->
@@ -385,12 +402,12 @@ const CONFIG = {
     note: "数字来自人工跟踪 Tibo 公开推文与社区实测，非官方统计；以你账号实际显示为准。"
   },
   history: [
-    { date: "10-28", text: "约 14:40 用户实测确认本轮额度已全部重置", note: "社区观测，非官方精确时刻" },
-    { date: "10-26", text: "约 14:10 用户实测反馈额度已重置", note: "社区观测" },
-    { date: "10-25", text: "14:10 多位会员实测确认额度全部重置", note: "社区观测" },
-    { date: "10-23", text: "多位会员确认额度已重置", note: "社区观测" },
-    { date: "10-20", text: "Tibo 宣布额度已重置，让大家享用", note: "官方宣布" },
-    { date: "10-15", text: "14:10 会员实测确认额度恢复", note: "社区观测" }
+    { date: "10-28", tag: "community", text: "14:40 实测确认额度已全部重置" },
+    { date: "10-26", tag: "community", text: "14:10 实测反馈额度已重置" },
+    { date: "10-25", tag: "community", text: "14:10 多位会员实测确认全部重置" },
+    { date: "10-23", tag: "community", text: "多位会员实测确认已重置" },
+    { date: "10-20", tag: "official", text: "Tibo 官宣发放重置" },
+    { date: "10-15", tag: "community", text: "14:10 实测确认额度恢复" }
   ]
 };
 
@@ -432,19 +449,40 @@ const CONFIG = {
     $("stat-note").textContent = st.note || "";
 
     const hist = (CONFIG.history && CONFIG.history.length) ? CONFIG.history : [];
-    const box = $("history");
+    const box = $("tl-rows");
     if(!hist.length){
       box.innerHTML = '<div style="font-size:14px;color:#B3A08D;padding:6px 2px 16px;">暂无记录，重置落地后把记录加到这里。</div>';
+      $("tl-more").style.display = "none";
     }else{
-      box.innerHTML = hist.map(function(h, i){
+      const TAG = {
+        official:  ["官宣", "tl-tag-official"],
+        community: ["实测", "tl-tag-community"]
+      };
+      box.innerHTML = hist.map(function(h){
+        const t = TAG[h.tag] || TAG.community;
         return '<div class="tl-row">' +
           '<div class="tl-date">' + h.date + '</div>' +
           '<div class="tl-axis"><span class="tl-dot"></span></div>' +
-          '<div class="tl-text">' + h.text +
+          '<div class="tl-text"><span class="tl-tag ' + t[1] + '">' + t[0] + '</span>' + h.text +
             (h.note ? '<div class="tl-note">' + h.note + '</div>' : '') +
           '</div>' +
         '</div>';
       }).join("");
+      const moreBtn = $("tl-more");
+      if(hist.length > 3){
+        moreBtn.style.display = "flex";
+        const wrap = $("history");
+        wrap.classList.add("tl--collapsed");
+        $("tl-more-text").textContent = "展开全部历史（" + hist.length + " 条）";
+        moreBtn.addEventListener("click", function(){
+          const expanded = wrap.classList.toggle("tl--expanded");
+          wrap.classList.toggle("tl--collapsed", !expanded);
+          moreBtn.setAttribute("aria-expanded", expanded ? "true" : "false");
+          $("tl-more-text").textContent = expanded ? "收起" : "展开全部历史（" + hist.length + " 条）";
+        });
+      }else{
+        moreBtn.style.display = "none";
+      }
     }
   }catch(err){
     document.getElementById("status-label").textContent = "加载失败，请稍后重试";
