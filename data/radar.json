@@ -1,0 +1,308 @@
+{
+  "mode": "snapshot",
+  "verified_at": "2026-10-31T06:15:00Z",
+  "status": {
+    "emoji": "🎟️",
+    "title": "Tibo 预告：未来两天发重置卡",
+    "description": "历史资料快照；自动采集的新消息单独列为待核验，不代表额度已重置。"
+  },
+  "forecast": {
+    "label": "明确预告 · Banked",
+    "confidence": "预告可信度：高 / 到账尚未确认",
+    "window": "10 月 31 日—11 月 2 日重点关注",
+    "subtitle": "北京时间 · 原帖未给出具体发放小时，区间为宽泛观察而非承诺截止",
+    "reason": "Tibo 在 Day 26 帖子中说未来两天会有 banked resets。原文没有确认具体资格、套餐及生效时刻。这个观察区间是对相对日期的宽泛换算；实际到账须以新的完成帖或个人 Usage 确认。",
+    "original_text": "Next two days will be resets… banked… do with this what you may 👀.",
+    "source_url": "https://x.com/thsottiaux/status/2116405414921384099"
+  },
+  "last_reset": {
+    "display": "10 月 28 日 14:29",
+    "description": "Tibo 发帖确认完成 · 北京时间（公开完成确认 ≠ 个人到账时刻）",
+    "type": "Full Reset",
+    "explanation": "10 月 31 日 Banked 仍处于预告状态"
+  },
+  "advice": {
+    "title": "先别急着兑换已有重置卡 🍞",
+    "text": "新一轮 Banked Reset 预计未来两天有消息，但资格与到账时间不明。按个人 Usage 安排额度，已存的重置卡注意有效期。"
+  },
+  "evidence": [
+    {
+      "headline": "Day 26：未来两天将有 Banked Reset",
+      "label": "新预告 · 尚未确认到账",
+      "published_at": "2026-10-31T05:42:00Z",
+      "original_text": "Day 26/ You can now easily switch between multiple accounts on mobile, and coming soon to desktop too. Next two days will be resets… banked… do with this what you may 👀.",
+      "translation": "未来两天将安排储存型重置；具体对象、时间与是否已发放尚不明确。",
+      "source_url": "https://x.com/thsottiaux/status/2116405414921384099"
+    },
+    {
+      "headline": "Day 23：Full Reset 已完成",
+      "label": "有预告 + 完成确认",
+      "published_at": "2026-10-28T06:29:38Z",
+      "original_text": "And it's done. See you tomorrow for some good news.",
+      "translation": "Tibo 宣布完成；这不代表每一个账户恰好在发帖时到账。",
+      "source_url": "https://x.com/thsottiaux/status/2115330127886463244"
+    }
+  ],
+  "events": [
+    {
+      "id": "2116405414921384099",
+      "title": "Day 26：未来两天 Banked Reset 预告",
+      "type": "announcement",
+      "type_label": "Banked 预告",
+      "status": "announced",
+      "status_label": "尚待发放",
+      "published_at": "2026-10-31T05:42:00Z",
+      "effective_at": null,
+      "summary": "Tibo 明确提到未来两天将有 banked resets，但没有公布准确发放时刻。",
+      "source_url": "https://x.com/thsottiaux/status/2116405414921384099"
+    },
+    {
+      "id": "2115330127886463244",
+      "title": "10/28 Full Reset 完成确认",
+      "type": "global",
+      "type_label": "Full / Global",
+      "status": "confirmed",
+      "status_label": "Tibo 确认完成",
+      "published_at": "2026-10-28T06:29:38Z",
+      "effective_at": "2026-10-28T06:29:38Z",
+      "summary": "“And it’s done.” 这是确认帖时间，不等于每个账户实际到账时间。",
+      "source_url": "https://x.com/thsottiaux/status/2115330127886463244"
+    },
+    {
+      "id": "2115273064481218829",
+      "title": "10/28 Full Reset 预告",
+      "type": "announcement",
+      "type_label": "仅预告",
+      "status": "announced",
+      "status_label": "后续已兑现",
+      "published_at": "2026-10-28T02:42:53Z",
+      "effective_at": null,
+      "summary": "Day 23/ ... today is a reset；与当日完成帖属于同一事件。",
+      "source_url": "https://x.com/thsottiaux/status/2115273064481218829"
+    },
+    {
+      "id": "2114588174249071102",
+      "title": "10/26 Full Reset 预告；第三方观察完成",
+      "type": "global",
+      "type_label": "Full / Global",
+      "status": "observed",
+      "status_label": "第三方观察",
+      "published_at": "2026-10-26T05:21:22Z",
+      "effective_at": "2026-10-26T06:10:00Z",
+      "summary": "Tibo 宣布当天重置；第三方人工记录完成，官方完成帖未核实。",
+      "source_url": "https://x.com/thsottiaux/status/2114588174249071102"
+    },
+    {
+      "id": "20261025-confirm",
+      "title": "10/25 Full Reset 传播完成",
+      "type": "global",
+      "type_label": "Full / Global",
+      "status": "confirmed",
+      "status_label": "原帖确认",
+      "published_at": "2026-10-25T06:06:16Z",
+      "effective_at": "2026-10-25T06:06:16Z",
+      "summary": "Tibo：It is all propagated。原帖具体 ID 仍待补录，下面链接指向来源汇总。",
+      "source_url": "https://radarultra.com/codex"
+    },
+    {
+      "id": "20261023-observed",
+      "title": "10/23 Full Reset 第三方记录完成",
+      "type": "global",
+      "type_label": "Full / Global",
+      "status": "observed",
+      "status_label": "第三方记录",
+      "published_at": "2026-10-23T04:46:00Z",
+      "effective_at": "2026-10-23T17:40:00Z",
+      "summary": "预告后第三方人工确认，未核验到 Tibo 本人的完成帖。",
+      "source_url": "https://radarultra.com/codex"
+    },
+    {
+      "id": "20261022-observed",
+      "title": "10/22 Full Reset 第三方记录完成",
+      "type": "global",
+      "type_label": "Full / Global",
+      "status": "observed",
+      "status_label": "第三方记录",
+      "published_at": "2026-10-22T06:55:00Z",
+      "effective_at": "2026-10-22T17:00:00Z",
+      "summary": "预告后第三方人工确认；请勿视为统一账户到账时刻。",
+      "source_url": "https://radarultra.com/codex"
+    },
+    {
+      "id": "20261020-reset",
+      "title": "10/20 Full Reset 公告",
+      "type": "global",
+      "type_label": "Full / Global",
+      "status": "announced",
+      "status_label": "有重置公告",
+      "published_at": "2026-10-20T06:33:00Z",
+      "effective_at": null,
+      "summary": "“Nevermind, we’re still cooking... and reset.” 完成时刻未核验。",
+      "source_url": "https://tibosay.com/"
+    },
+    {
+      "id": "20261017-reset",
+      "title": "10/17 Full Reset 完成记录",
+      "type": "global",
+      "type_label": "Full / Global",
+      "status": "observed",
+      "status_label": "公开追踪记录",
+      "published_at": "2026-10-17T21:12:00Z",
+      "effective_at": "2026-10-17T21:12:00Z",
+      "summary": "公开追踪收录“Done”；需对原帖 ID 复核。",
+      "source_url": "https://tibosay.com/"
+    },
+    {
+      "id": "2110618732666257557",
+      "title": "10/15 Full Reset 完成确认",
+      "type": "global",
+      "type_label": "Full / Global",
+      "status": "confirmed",
+      "status_label": "Tibo 确认",
+      "published_at": "2026-10-15T06:28:00Z",
+      "effective_at": "2026-10-15T06:28:00Z",
+      "summary": "Tibo：Done and dusted。",
+      "source_url": "https://x.com/thsottiaux/status/2110618732666257557"
+    },
+    {
+      "id": "20261013-reset",
+      "title": "10/13 Full Reset 确认",
+      "type": "global",
+      "type_label": "Full / Global",
+      "status": "confirmed",
+      "status_label": "公开追踪记录",
+      "published_at": "2026-10-13T05:06:00Z",
+      "effective_at": "2026-10-13T05:06:00Z",
+      "summary": "公开记录收录 “It’s done”；原帖编号需补录。",
+      "source_url": "https://tibosay.com/"
+    },
+    {
+      "id": "20261011-reset",
+      "title": "10/11 Full Reset 记录",
+      "type": "global",
+      "type_label": "Full / Global",
+      "status": "observed",
+      "status_label": "公开追踪记录",
+      "published_at": "2026-10-11T04:01:00Z",
+      "effective_at": "2026-10-11T04:01:00Z",
+      "summary": "追踪记录有重置事件，原帖完成时间需进一步核对。",
+      "source_url": "https://opentherank.com/codex-reset/"
+    },
+    {
+      "id": "20261007-banked",
+      "title": "10/08 Banked Reset 发放记录",
+      "type": "banked",
+      "type_label": "Banked",
+      "status": "observed",
+      "status_label": "公开追踪记录",
+      "published_at": "2026-10-07T19:19:00Z",
+      "effective_at": null,
+      "summary": "北京时间 10 月 8 日 03:19 公告，不能当作所有用户同时兑换的时间。",
+      "source_url": "https://opentherank.com/codex-reset/"
+    },
+    {
+      "id": "20261002-reset",
+      "title": "10/03 Full Reset 完成记录",
+      "type": "global",
+      "type_label": "Full / Global",
+      "status": "observed",
+      "status_label": "公开追踪记录",
+      "published_at": "2026-10-02T21:18:00Z",
+      "effective_at": "2026-10-02T21:18:00Z",
+      "summary": "北京时间 10 月 3 日 05:18；此前预告时间存在误读，依据归档完成帖。",
+      "source_url": "https://opentherank.com/codex-reset/"
+    },
+    {
+      "id": "2107489495491875027",
+      "title": "28 天改进或重置计划",
+      "type": "announcement",
+      "type_label": "活动承诺",
+      "status": "announced",
+      "status_label": "非单次重置",
+      "published_at": "2026-10-04T20:33:00Z",
+      "effective_at": null,
+      "summary": "活动承诺不是每天必定重置。",
+      "source_url": "https://x.com/thsottiaux/status/2107489495491875027"
+    }
+  ],
+  "predictions": [
+    {
+      "id": "p-20261031-banked",
+      "created_at": "2026-10-31T05:42:00Z",
+      "kind": "banked",
+      "headline": "Day 26：未来两天发放 Banked Reset",
+      "promise": "Next two days will be resets… banked…",
+      "window": "北京时间 10/31—11/02（宽泛观察；具体时区和小时未说明）",
+      "status": "pending",
+      "actual_at": null,
+      "actual_kind": "尚无可核验的发放完成时间",
+      "basis": "Tibo 本人明确表示将有 Banked Reset，但未给发放时刻和覆盖套餐。",
+      "source_url": "https://x.com/thsottiaux/status/2116405414921384099",
+      "confirmation_url": null
+    },
+    {
+      "id": "p-20261028-full",
+      "created_at": "2026-10-28T02:42:53Z",
+      "kind": "global",
+      "headline": "Day 23：今天是 Reset 日",
+      "promise": "Just kidding, today is a reset. / Lands by midnight PST.",
+      "window": "10/28 北京时间当天至次日（原帖按 PST 表述，有时区歧义）",
+      "status": "fulfilled",
+      "actual_at": "2026-10-28T06:29:38Z",
+      "actual_kind": "Tibo 发帖确认执行完成（非个人到账）",
+      "basis": "预告后约 3 小时 47 分，Tibo 发出 “And it’s done”。",
+      "source_url": "https://x.com/thsottiaux/status/2115273064481218829",
+      "confirmation_url": "https://x.com/thsottiaux/status/2115330127886463244"
+    },
+    {
+      "id": "p-20261026-full",
+      "created_at": "2026-10-26T05:21:22Z",
+      "kind": "global",
+      "headline": "Day 21：今天是 Reset 日",
+      "promise": "But today is a reset.",
+      "window": "10/26 当天，未公开精确小时",
+      "status": "observed",
+      "actual_at": "2026-10-26T06:10:00Z",
+      "actual_kind": "第三方人工记录完成，非 Tibo 完成帖",
+      "basis": "第三方记录约 14:10 北京时间完成；官方确认原帖未取得。",
+      "source_url": "https://x.com/thsottiaux/status/2114588174249071102",
+      "confirmation_url": "https://tibo.txyxt.dpdns.org/zh/history.html"
+    },
+    {
+      "id": "p-20261015-full",
+      "created_at": "2026-10-15T04:55:00Z",
+      "kind": "global",
+      "headline": "Day 10：两小时内重置",
+      "promise": "Day 10 / Reset（另有两小时内到账提示）",
+      "window": "约 10/15 12:55—14:55 北京时间",
+      "status": "fulfilled",
+      "actual_at": "2026-10-15T06:28:00Z",
+      "actual_kind": "Tibo “Done and dusted” 确认完成",
+      "basis": "预告后约 1 小时 33 分发布完成帖。",
+      "source_url": "https://x.com/thsottiaux/status/2110595484180214059",
+      "confirmation_url": "https://x.com/thsottiaux/status/2110618732666257557"
+    },
+    {
+      "id": "p-20261004-28day",
+      "created_at": "2026-10-04T20:33:00Z",
+      "kind": "conditional",
+      "headline": "28 天计划：每日改进或 Full Reset",
+      "promise": "Each day ... improvement ... or ... full reset.",
+      "window": "10/05—11/01（美国太平洋日期，活动观察期）",
+      "status": "conditional",
+      "actual_at": null,
+      "actual_kind": "并非单次 Reset 预告，不能计算统一兑现时间",
+      "basis": "每天可通过推出重大改进兑现，不代表每天必定重置。",
+      "source_url": "https://x.com/thsottiaux/status/2107489495491875027",
+      "confirmation_url": null
+    }
+  ],
+  "pipeline": {
+    "state": "not_started",
+    "last_attempt_at": null,
+    "last_success_at": null,
+    "provider": "codexreset-news public API",
+    "message": "尚未运行自动抓取；请以原帖核验为准。"
+  },
+  "provenance_note": "工程 ZIP 原有历史资料，保留原始状态，不代表本次重新核验。"
+}
