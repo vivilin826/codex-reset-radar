@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Codex 重置雷达 · 今天重置了吗</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='%23F5B942'/%3E%3Ccircle cx='16' cy='16' r='4' fill='%234FB98F'/%3E%3Cpath d='M9 9a10 10 0 0 1 14 0' stroke='%234FB98F' stroke-width='2.4' fill='none' stroke-linecap='round'/%3E%3Cpath d='M6 6a15 15 0 0 1 20 0' stroke='%23FF9E7D' stroke-width='2.4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --ink:#4B3A2E;
+    --ink-2:#8A7361;
+    --ink-3:#B3A08D;
+    --bg:#FFF8EA;
+    --card:#FFFFFF;
+    --line:#F0E3CE;
+    --butter:#F5B942;
+    --butter-deep:#D99A2B;
+    --peach:#FF9E7D;
+    --pink:#F7A8B8;
+    --mint:#4FB98F;
+    --mint-deep:#2E9E72;
+    --coral:#F2734F;
+    --hero-bg:#FFEFC9;
+    --hero-ink:#5A4328;
+    --hero-sub:#A5865C;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    line-height:1.6;
+    font-size:16px;
+  }
+  .cute{font-family:"Yuanti SC","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;}
+  .wrap{max-width:640px;margin:0 auto;padding:0 16px 40px;}
+
+  /* ===== 顶栏 ===== */
+  .topbar{
+    display:flex;align-items:baseline;justify-content:space-between;
+    padding:16px 0 12px;
+  }
+  .brand{
+    font-size:18px;font-weight:800;letter-spacing:.5px;color:var(--ink);
+    display:flex;align-items:center;gap:8px;
+  }
+  .brand svg{flex:none;}
+  .updated{font-size:13px;color:var(--ink-3);}
+
+  /* ===== 状态卡 hero ===== */
+  .hero{
+    position:relative;overflow:hidden;
+    background:var(--hero-bg);color:var(--hero-ink);
+    border-radius:20px;padding:22px 20px 18px;
+  }
+  .hero-doodle{
+    position:absolute;top:-14px;right:-10px;width:118px;height:118px;
+    pointer-events:none;
+  }
+  .status-pill{
+    display:inline-flex;align-items:center;gap:7px;
+    font-size:13px;font-weight:600;color:var(--ink);
+    background:#FFFDF6;
+    box-shadow:0 1px 4px rgba(217,154,43,.18);
+    padding:5px 11px;border-radius:999px;
+  }
+  .status-dot{width:8px;height:8px;border-radius:50%;background:var(--butter-deep);}
+  .hero h1{
+    font-size:24px;font-weight:800;line-height:1.35;
+    margin:16px 0 8px;letter-spacing:.2px;
+  }
+  .hero-summary{font-size:14px;color:var(--hero-sub);}
+  .window{
+    margin-top:18px;background:var(--card);
+    border-radius:14px;padding:12px 14px;
+    box-shadow:0 2px 10px rgba(217,154,43,.10);
+  }
+  .window-label{
+    font-size:12px;color:var(--ink-3);letter-spacing:1px;
+    display:flex;align-items:center;gap:6px;
+  }
+  .window-label svg{flex:none;color:var(--butter-deep);}
+  .window-range{
+    display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;
+    margin-top:6px;
+  }
+  .window-time{
+    font-size:26px;font-weight:800;font-variant-numeric:tabular-nums;
+    color:var(--ink);
+  }
+  .window-arrow{color:var(--butter);font-size:16px;}
+  .window-note{font-size:13px;color:var(--ink-2);margin-top:6px;}
+  .judgment{
+    margin-top:12px;font-size:13px;color:var(--hero-sub);
+    display:flex;gap:6px;align-items:flex-start;
+  }
+  .judgment svg{flex:none;margin-top:2px;color:var(--peach);}
+  .hero-foot{
+    margin-top:14px;padding-top:12px;border-top:1px dashed #EFD9A7;
+    display:flex;align-items:center;justify-content:space-between;gap:10px;
+  }
+  .source-link{
+    display:inline-flex;align-items:center;gap:6px;
+    background:var(--butter);color:#4B3A2E;
+    font-size:14px;font-weight:700;
+    text-decoration:none;padding:8px 14px;border-radius:999px;
+    box-shadow:0 2px 6px rgba(217,154,43,.28);
+  }
+  .source-link svg{flex:none;}
+  .source-link:active{transform:translateY(1px);}
+  .hero-time{font-size:12px;color:var(--hero-sub);}
+
+  /* ===== 使用建议 ===== */
+  .tip{
+    margin-top:14px;background:#FFEFE7;
+    border:1px solid #F6D3C2;border-radius:14px;
+    padding:13px 16px;font-size:14px;color:#A05C3C;
+    display:flex;gap:10px;align-items:flex-start;
+  }
+  .tip svg{flex:none;margin-top:2px;color:var(--peach);}
+
+  /* ===== 区块通用 ===== */
+  .panel{margin-top:26px;}
+  .panel-title{
+    font-size:17px;font-weight:800;letter-spacing:.3px;
+    margin-bottom:4px;color:var(--ink);
+  }
+  .panel-sub{font-size:13px;color:var(--ink-3);margin-bottom:14px;}
+
+  /* ===== 累计重置统计 ===== */
+  .stats{
+    background:var(--card);border:1px solid var(--line);border-radius:16px;
+    padding:16px;margin-bottom:14px;
+    box-shadow:0 2px 8px rgba(217,154,43,.06);
+  }
+  .stat-num{
+    font-size:44px;font-weight:800;line-height:1.1;color:var(--butter-deep);
+    font-variant-numeric:tabular-nums;
+  }
+  .stat-main{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;}
+  .stat-label{font-size:15px;font-weight:700;color:var(--ink);}
+  .stat-chips{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap;}
+  .chip{
+    font-size:12px;font-weight:600;color:var(--ink-2);
+    background:#FFF7E4;border:1px solid #F0E3CE;border-radius:999px;
+    padding:4px 10px;
+  }
+  .chip b{color:var(--butter-deep);}
+  .stat-note{font-size:12px;color:var(--ink-3);margin-top:10px;line-height:1.7;}
+
+  /* ===== 时间轴 ===== */
+  .tl{
+    background:var(--card);border:1px solid var(--line);border-radius:16px;
+    padding:16px 16px 2px;
+  }
+  .tl-row{
+    display:grid;grid-template-columns:56px 22px 1fr;
+    column-gap:10px;
+  }
+  .tl-date{
+    font-size:14px;font-weight:700;font-variant-numeric:tabular-nums;
+    color:var(--ink);text-align:right;padding-top:2px;
+  }
+  .tl-axis{position:relative;display:flex;justify-content:center;}
+  .tl-dot{
+    width:10px;height:10px;border-radius:50%;flex:none;
+    background:var(--mint);margin-top:6px;
+  }
+  .tl-row:nth-child(4n+1) .tl-dot{background:var(--butter);box-shadow:0 0 0 3px #FCE8C2;}
+  .tl-row:nth-child(4n+2) .tl-dot{background:var(--mint);box-shadow:0 0 0 3px #D9F0E6;}
+  .tl-row:nth-child(4n+3) .tl-dot{background:var(--peach);box-shadow:0 0 0 3px #FFE4D6;}
+  .tl-row:nth-child(4n+4) .tl-dot{background:var(--pink);box-shadow:0 0 0 3px #FBE3E8;}
+  .tl-row:not(:last-child) .tl-axis::after{
+    content:"";position:absolute;left:calc(50% - 1px);
+    top:21px;bottom:-14px;width:2px;background:var(--line);
+  }
+  .tl-text{
+    font-size:14px;color:var(--ink-2);padding-bottom:18px;
+  }
+  .tl-row:last-child .tl-text{padding-bottom:14px;}
+  .tl-note{font-size:12px;color:var(--ink-3);margin-top:2px;}
+
+  /* ===== 规律说明 ===== */
+  .rules{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:6px 16px;}
+  .rule{
+    display:grid;grid-template-columns:34px 1fr;
+    column-gap:12px;padding:13px 0;align-items:start;
+  }
+  .rule + .rule{border-top:1px solid var(--line);}
+  .rule-icon{
+    width:34px;height:34px;border-radius:12px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .rule:nth-child(1) .rule-icon{background:#FCE8C2;color:var(--butter-deep);}
+  .rule:nth-child(2) .rule-icon{background:#D9F0E6;color:var(--mint-deep);}
+  .rule:nth-child(3) .rule-icon{background:#FFE4D6;color:var(--coral);}
+  .rule-icon svg{flex:none;}
+  .rule-title{font-size:15px;font-weight:700;color:var(--ink);}
+  .rule-desc{font-size:13px;color:var(--ink-2);margin-top:2px;}
+
+  /* ===== 关注引导 ===== */
+  .follow{
+    position:relative;overflow:hidden;
+    margin-top:26px;background:#FFE9B8;color:var(--hero-ink);
+    border-radius:20px;padding:20px;
+  }
+  .follow-star{
+    position:absolute;top:14px;right:16px;width:34px;height:34px;
+    pointer-events:none;
+  }
+  .follow h3{font-size:18px;font-weight:800;letter-spacing:.3px;}
+  .follow p{font-size:14px;color:var(--hero-sub);margin-top:6px;max-width:90%;}
+  .qr-box{
+    margin-top:16px;background:#FFFDF6;
+    border:1.5px dashed var(--peach);border-radius:14px;padding:18px 14px;text-align:center;
+  }
+  .qr-img{
+    width:200px;height:200px;border-radius:14px;
+    display:block;margin:0 auto;
+    box-shadow:0 2px 8px rgba(217,154,43,.12);
+  }
+  .qr-caption{font-size:13px;color:var(--ink-2);margin-top:12px;}
+
+  /* ===== 页脚 ===== */
+  footer{
+    margin-top:28px;padding-top:14px;border-top:1px dashed var(--line);
+    font-size:12px;color:var(--ink-3);line-height:1.8;
+  }
+
+  @media (min-width:768px){
+    .wrap{padding:0 24px 48px;}
+    .topbar{padding:24px 0 16px;}
+    .hero{padding:30px 28px 22px;}
+    .hero h1{font-size:28px;}
+    .window-time{font-size:30px;}
+    .qr-img{width:220px;height:220px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ===== 顶栏 ===== -->
+  <header class="topbar">
+    <div class="brand cute">
+      <svg width="22" height="22" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="13" fill="#F5B942"/><circle cx="16" cy="16" r="4" fill="#4FB98F"/><path d="M9 9a10 10 0 0 1 14 0" stroke="#4FB98F" stroke-width="2.4" fill="none" stroke-linecap="round"/><path d="M6 6a15 15 0 0 1 20 0" stroke="#FF9E7D" stroke-width="2.4" fill="none" stroke-linecap="round"/></svg>
+      Codex 重置雷达
+    </div>
+    <div class="updated" id="top-updated"></div>
+  </header>
+
+  <main>
+
+    <!-- ===== 状态卡 ===== -->
+    <section class="hero">
+      <svg class="hero-doodle" viewBox="0 0 120 120" aria-hidden="true">
+        <circle cx="60" cy="60" r="52" fill="none" stroke="#FFD9A8" stroke-width="10"/>
+        <circle cx="60" cy="60" r="30" fill="none" stroke="#FF9E7D" stroke-width="7" opacity=".75"/>
+        <circle cx="60" cy="60" r="9" fill="#4FB98F"/>
+      </svg>
+      <span class="status-pill"><span class="status-dot" id="status-dot"></span><span id="status-label">…</span></span>
+      <h1 class="cute" id="hero-title">…</h1>
+      <p class="hero-summary" id="hero-summary"></p>
+      <div class="window">
+        <div class="window-label">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          预计重置窗口 · 北京时间
+        </div>
+        <div class="window-range">
+          <span class="window-time" id="win-start">—</span>
+          <span class="window-arrow">→</span>
+          <span class="window-time" id="win-end">—</span>
+        </div>
+        <div class="window-note" id="win-label"></div>
+      </div>
+      <div class="judgment">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>
+        <span id="judgment"></span>
+      </div>
+      <div class="hero-foot">
+        <a class="source-link" id="source-link" href="#" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+          查看 Tibo 原帖
+        </a>
+        <span class="hero-time" id="hero-time"></span>
+      </div>
+    </section>
+
+    <!-- ===== 使用建议 ===== -->
+    <section class="tip" id="tip">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.4 1 2.3h6c0-.9.4-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg>
+      <span id="tip-text"></span>
+    </section>
+
+    <!-- ===== 累计重置统计 ===== -->
+    <section class="panel">
+      <h2 class="panel-title cute">已经实现过多少次重置</h2>
+      <p class="panel-sub">从开始跟踪至今，真实落地过的重置次数</p>
+      <div class="stats">
+        <div class="stat-main">
+          <span class="stat-num" id="stat-num">—</span>
+          <span class="stat-label" id="stat-label">累计已实现重置</span>
+        </div>
+        <div class="stat-chips">
+          <span class="chip" id="stat-chip-announced">预告中 <b id="chip-announced">—</b> 条</span>
+          <span class="chip" id="stat-chip-range">自 <b id="chip-range">—</b> 起跟踪</span>
+        </div>
+        <div class="stat-note" id="stat-note"></div>
+      </div>
+    </section>
+
+    <!-- ===== 最近重置记录 ===== -->
+    <section class="panel">
+      <h2 class="panel-title cute">最近重置记录</h2>
+      <p class="panel-sub">社区实测与 Tibo 官宣记录，以你账号实际显示为准</p>
+      <div class="tl" id="history"></div>
+    </section>
+
+    <!-- ===== 重置规律说明 ===== -->
+    <section class="panel">
+      <h2 class="panel-title cute">重置一般怎么来</h2>
+      <p class="panel-sub">社区观察到的规律，非官方承诺</p>
+      <div class="rules">
+        <div class="rule">
+          <div class="rule-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 17l5-6 4 3 6-8 3 4"/><path d="M14 5h6v6"/></svg></div>
+          <div><div class="rule-title">里程碑重置</div><div class="rule-desc">Codex 用户数每破一个量级，Tibo 常宣布全员重置（例如 15M、20M 时）。</div></div>
+        </div>
+        <div class="rule">
+          <div class="rule-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
+          <div><div class="rule-title">28 天计划</div><div class="rule-desc">Tibo 曾连续 28 天每天兑现“一项改进或一次重置”，重置发放偏随机。</div></div>
+        </div>
+        <div class="rule">
+          <div class="rule-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
+          <div><div class="rule-title">账期与手动发放</div><div class="rule-desc">套餐额度本身有账期，Tibo 手动发放的“重置卡”可叠加使用，注意查收。</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 关注引导 ===== -->
+    <section class="follow">
+      <svg class="follow-star" viewBox="0 0 34 34" aria-hidden="true">
+        <path d="M17 3l3.4 10.6L31 17l-10.6 3.4L17 31l-3.4-10.6L3 17l10.6-3.4z" fill="#F7A8B8"/>
+        <circle cx="27" cy="7" r="3" fill="#FF9E7D"/>
+      </svg>
+      <h3 class="cute">别错过下一次重置</h3>
+      <p>重要预告我会群发图文提醒，关注公众号就能收到。重置落地后再开工，额度不浪费。</p>
+      <div class="qr-box">
+        <img class="qr-img" src="assets/qrcode.jpg" alt="公众号二维码">
+        <div class="qr-caption">长按识别二维码 · 关注公众号</div>
+      </div>
+    </section>
+
+    <!-- ===== 页脚 ===== -->
+    <footer>
+      本页由人工跟踪 Tibo（@thsottiaux）公开推文维护，与 OpenAI 无关。所有重置时间以你账号实际显示为准。
+    </footer>
+  </main>
+</div>
+
+<script>
+/* ================================================================
+   【数据配置区】—— 你只需要改这里
+   每次 Tibo 发预告 / 重置落地后，更新对应字段即可，页面会自动刷新。
+   status 可选值：
+     announced = 官方已预告（琥珀色徽标）
+     reset     = 已确认发放重置（绿色徽标）
+     silent    = 暂无预告（灰色徽标）
+   stats 为累计统计：重置落地后 +1 到 doneCount，并发预告记得在 announcedCount +1。
+   ================================================================ */
+const CONFIG = {
+  status: "announced",
+  heroTitle: "接下来两天将发放重置卡",
+  heroSummary: "Tibo 已预告发放重置卡，可存储后使用，具体发放时刻尚未公布。",
+  windowStartCn: "10/31 15:00",
+  windowEndCn: "11/02 16:00",
+  windowLabel: "对应美西 10/31、11/1 两个自然日，时刻未定",
+  judgment: "官方仅预告日期，尚未确认完成，请以账号实际显示为准",
+  sourceUrl: "https://x.com/thsottiaux/status/2116405414921384099",
+  updatedAt: "2026-10-31 14:30",
+  stats: {
+    doneCount: 54,
+    announcedCount: 10,
+    trackingStart: "2026-09-26",
+    note: "数字来自人工跟踪 Tibo 公开推文与社区实测，非官方统计；以你账号实际显示为准。"
+  },
+  history: [
+    { date: "10-28", text: "约 14:40 用户实测确认本轮额度已全部重置", note: "社区观测，非官方精确时刻" },
+    { date: "10-26", text: "约 14:10 用户实测反馈额度已重置", note: "社区观测" },
+    { date: "10-25", text: "14:10 多位会员实测确认额度全部重置", note: "社区观测" },
+    { date: "10-23", text: "多位会员确认额度已重置", note: "社区观测" },
+    { date: "10-20", text: "Tibo 宣布额度已重置，让大家享用", note: "官方宣布" },
+    { date: "10-15", text: "14:10 会员实测确认额度恢复", note: "社区观测" }
+  ]
+};
+
+/* ============ 渲染逻辑（一般不用改） ============ */
+(function(){
+  try{
+    const STATUS_META = {
+      announced: { label: "官方已预告", color: "#D99A2B" },
+      reset:     { label: "已发放重置", color: "#2E9E72" },
+      silent:    { label: "暂无预告",   color: "#B3A08D" }
+    };
+    const TIP_TEXT = {
+      announced: "预告期内：把大任务留着，等重置落地后再跑，别刚用完就重置。",
+      reset:     "已确认重置：额度已补齐，优先跑之前被卡住的活。",
+      silent:    "暂无预告：按正常节奏用，注意别在可能重置前把额度烧光。"
+    };
+    const $ = function(id){ return document.getElementById(id); };
+
+    const meta = STATUS_META[CONFIG.status] || STATUS_META.silent;
+    $("status-dot").style.background = meta.color;
+    $("status-label").textContent = meta.label;
+    $("hero-title").textContent = CONFIG.heroTitle;
+    $("hero-summary").textContent = CONFIG.heroSummary;
+    $("win-start").textContent = CONFIG.windowStartCn || "—";
+    $("win-end").textContent = CONFIG.windowEndCn || "—";
+    $("win-label").textContent = CONFIG.windowLabel || "";
+    $("judgment").textContent = CONFIG.judgment || "";
+    $("source-link").setAttribute("href", CONFIG.sourceUrl || "#");
+    $("hero-time").textContent = "更新于 " + (CONFIG.updatedAt || "");
+    $("top-updated").textContent = "更新 " + (CONFIG.updatedAt || "");
+
+    const tip = TIP_TEXT[CONFIG.status] || TIP_TEXT.silent;
+    $("tip-text").textContent = tip;
+
+    const st = CONFIG.stats || {};
+    $("stat-num").textContent = (st.doneCount !== undefined) ? st.doneCount : "—";
+    $("chip-announced").textContent = (st.announcedCount !== undefined) ? st.announcedCount : "—";
+    $("chip-range").textContent = st.trackingStart || "—";
+    $("stat-note").textContent = st.note || "";
+
+    const hist = (CONFIG.history && CONFIG.history.length) ? CONFIG.history : [];
+    const box = $("history");
+    if(!hist.length){
+      box.innerHTML = '<div style="font-size:14px;color:#B3A08D;padding:6px 2px 16px;">暂无记录，重置落地后把记录加到这里。</div>';
+    }else{
+      box.innerHTML = hist.map(function(h, i){
+        return '<div class="tl-row">' +
+          '<div class="tl-date">' + h.date + '</div>' +
+          '<div class="tl-axis"><span class="tl-dot"></span></div>' +
+          '<div class="tl-text">' + h.text +
+            (h.note ? '<div class="tl-note">' + h.note + '</div>' : '') +
+          '</div>' +
+        '</div>';
+      }).join("");
+    }
+  }catch(err){
+    document.getElementById("status-label").textContent = "加载失败，请稍后重试";
+  }
+})();
+</script>
+</body>
+</html>
