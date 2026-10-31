@@ -1,0 +1,64 @@
+name: Codex reset radar - hourly check
+on:
+  schedule:
+    - cron: '17 * * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: radar-update-and-pages
+  cancel-in-progress: false
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Regression tests
+        run: python -m unittest discover -s tests -v
+      - name: Collect third-party candidates (retain data on failure)
+        run: python scripts/update.py
+      - name: Apply explicitly approved reviews only
+        run: python scripts/review.py
+      - name: Collection report
+        run: |
+          python - <<'PY'
+          import json,os
+          d=json.load(open('data/radar.json')); p=d['pipeline']
+          print(json.dumps(p,ensure_ascii=False,indent=2))
+          with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as f:
+              f.write('## Collection result\n\n'+json.dumps(p,ensure_ascii=False,indent=2)+'\n\nNew posts are unverified candidates. Existing history retained.\n')
+          if p['state']!='ok': print('::warning::Source unavailable; retained previous evidence and published delay indicator.')
+          PY
+      - name: Commit cached snapshot
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/radar.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Update public evidence cache (no automatic reset confirmation)'
+            git push
+          fi
+      - name: Prepare public website only
+        run: |
+          mkdir -p _site
+          cp index.html radar-live.js _site/
+          cp -R assets data _site/
+          touch _site/.nojekyll
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - name: Deploy Pages (also runs after bot cache commits)
+        id: deployment
+        uses: actions/deploy-pages@v4
