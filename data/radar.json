@@ -299,12 +299,12 @@
   ],
   "pipeline": {
     "state": "ok",
-    "last_attempt_at": "2026-11-01T18:56:51Z",
-    "last_success_at": "2026-11-01T18:56:52Z",
+    "last_attempt_at": "2026-11-01T22:49:55Z",
+    "last_success_at": "2026-11-01T22:49:56Z",
     "provider": "codexreset-news.com public API (third-party archive)",
     "message": "候选原帖已更新；完成/范围仍需人工审核",
     "latest_count": 200,
-    "new_or_changed": 6
+    "new_or_changed": 0
   },
   "provenance_note": "工程 ZIP 原有历史资料，保留原始状态，不代表本次重新核验。",
   "source_posts": {
