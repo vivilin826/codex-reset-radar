@@ -299,12 +299,12 @@
   ],
   "pipeline": {
     "state": "ok",
-    "last_attempt_at": "2026-10-31T23:24:10Z",
-    "last_success_at": "2026-10-31T23:24:11Z",
+    "last_attempt_at": "2026-11-01T06:06:14Z",
+    "last_success_at": "2026-11-01T06:06:16Z",
     "provider": "codexreset-news.com public API (third-party archive)",
     "message": "候选原帖已更新；完成/范围仍需人工审核",
     "latest_count": 200,
-    "new_or_changed": 0
+    "new_or_changed": 3
   },
   "provenance_note": "工程 ZIP 原有历史资料，保留原始状态，不代表本次重新核验。",
   "source_posts": {
@@ -3107,9 +3107,65 @@
       "upstream_channel": "timeline",
       "quota_verified": false,
       "translation": ""
+    },
+    "2116692827459747906": {
+      "id": "2116692827459747906",
+      "published_at": "2026-11-01T00:44:30Z",
+      "text": "@yacineMTB ?!",
+      "url": "https://x.com/thsottiaux/status/2116692827459747906",
+      "kind_hint": "global",
+      "candidate_state": "other",
+      "is_reply": true,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": "@yacineMTB ?!"
+    },
+    "2116692730877522349": {
+      "id": "2116692730877522349",
+      "published_at": "2026-11-01T00:44:07Z",
+      "text": "@poteto Can’t wait",
+      "url": "https://x.com/thsottiaux/status/2116692730877522349",
+      "kind_hint": "global",
+      "candidate_state": "other",
+      "is_reply": true,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": "@poteto 等不及了"
+    },
+    "2116692529970311254": {
+      "id": "2116692529970311254",
+      "published_at": "2026-11-01T00:43:20Z",
+      "text": "Banked 1/2",
+      "url": "https://x.com/thsottiaux/status/2116692529970311254",
+      "kind_hint": "banked",
+      "candidate_state": "context_candidate",
+      "is_reply": false,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": "储备重置 1/2"
     }
   },
   "review_queue": [
+    {
+      "id": "2116692529970311254",
+      "published_at": "2026-11-01T00:43:20Z",
+      "text": "Banked 1/2",
+      "url": "https://x.com/thsottiaux/status/2116692529970311254",
+      "kind_hint": "banked",
+      "candidate_state": "context_candidate",
+      "is_reply": false,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": "储备重置 1/2"
+    },
     {
       "id": "2116405414921384099",
       "published_at": "2026-10-31T05:42:26Z",
@@ -3787,20 +3843,6 @@
       "published_at": "2026-08-27T16:35:05Z",
       "text": "Reset for all ChatGPT Work and Codex users: “Never slept better and feeling reseted. Brand new me and brand new usage for all ChatGPT Work and Codex users.”",
       "url": "https://x.com/thsottiaux/status/2093014447833116908",
-      "kind_hint": "global",
-      "candidate_state": "context_candidate",
-      "is_reply": false,
-      "original_verification": "third_party_copy",
-      "upstream_source": "https://codex-reset.com/",
-      "upstream_channel": "timeline",
-      "quota_verified": false,
-      "translation": ""
-    },
-    {
-      "id": "2092311059197808936",
-      "published_at": "2026-08-25T14:15:00Z",
-      "text": "Quiet reset for all paid plans — weekly usage back to 100% from ~14:00 UTC. Tibo confirmed it only in replies (\"Ah yeah, forgot to say\") ahead of the Plus 5h-limit return.",
-      "url": "https://x.com/thsottiaux/status/2092311059197808936",
       "kind_hint": "global",
       "candidate_state": "context_candidate",
       "is_reply": false,
