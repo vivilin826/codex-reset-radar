@@ -299,12 +299,12 @@
   ],
   "pipeline": {
     "state": "ok",
-    "last_attempt_at": "2026-11-01T22:49:55Z",
-    "last_success_at": "2026-11-01T22:49:56Z",
+    "last_attempt_at": "2026-11-02T02:31:19Z",
+    "last_success_at": "2026-11-02T02:31:21Z",
     "provider": "codexreset-news.com public API (third-party archive)",
     "message": "候选原帖已更新；完成/范围仍需人工审核",
     "latest_count": 200,
-    "new_or_changed": 0
+    "new_or_changed": 2
   },
   "provenance_note": "工程 ZIP 原有历史资料，保留原始状态，不代表本次重新核验。",
   "source_posts": {
@@ -3233,9 +3233,51 @@
       "upstream_channel": "x",
       "quota_verified": false,
       "translation": "@jxnlco @wesleytian @romainhuet 😂"
+    },
+    "2117035794678546764": {
+      "id": "2117035794678546764",
+      "published_at": "2026-11-01T23:27:20Z",
+      "text": "Day 28/ Banked 2/2",
+      "url": "https://x.com/thsottiaux/status/2117035794678546764",
+      "kind_hint": "banked",
+      "candidate_state": "context_candidate",
+      "is_reply": false,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": "Day 28/ Banked 2/2(第 2 枚/共 2 枚 banked 重置已入账)"
+    },
+    "2117035666332954818": {
+      "id": "2117035666332954818",
+      "published_at": "2026-11-01T23:26:50Z",
+      "text": "@poteto @MyCrazyIdeal it's fine to admit we plan these together months in advance",
+      "url": "https://x.com/thsottiaux/status/2117035666332954818",
+      "kind_hint": "global",
+      "candidate_state": "other",
+      "is_reply": true,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": "@poteto @MyCrazyIdeal 承认我们几个月前就一起规划好这些也没关系"
     }
   },
   "review_queue": [
+    {
+      "id": "2117035794678546764",
+      "published_at": "2026-11-01T23:27:20Z",
+      "text": "Day 28/ Banked 2/2",
+      "url": "https://x.com/thsottiaux/status/2117035794678546764",
+      "kind_hint": "banked",
+      "candidate_state": "context_candidate",
+      "is_reply": false,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": "Day 28/ Banked 2/2(第 2 枚/共 2 枚 banked 重置已入账)"
+    },
     {
       "id": "2116942192497533418",
       "published_at": "2026-11-01T17:15:24Z",
@@ -3915,20 +3957,6 @@
       "url": "https://x.com/thsottiaux/status/2094252447271366730",
       "kind_hint": "global",
       "candidate_state": "announcement_candidate",
-      "is_reply": false,
-      "original_verification": "third_party_copy",
-      "upstream_source": "https://codex-reset.com/",
-      "upstream_channel": "timeline",
-      "quota_verified": false,
-      "translation": ""
-    },
-    {
-      "id": "2093801758665715784",
-      "published_at": "2026-08-29T20:43:34Z",
-      "text": "Usage reset for all paid Codex and ChatGPT Work users, with usage fixes (compaction, memory, goals, subagents, MCP) that stretch limits 10–50% further.",
-      "url": "https://x.com/thsottiaux/status/2093801758665715784",
-      "kind_hint": "global",
-      "candidate_state": "context_candidate",
       "is_reply": false,
       "original_verification": "third_party_copy",
       "upstream_source": "https://codex-reset.com/",
