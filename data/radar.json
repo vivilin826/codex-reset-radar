@@ -299,12 +299,12 @@
   ],
   "pipeline": {
     "state": "ok",
-    "last_attempt_at": "2026-11-02T02:31:19Z",
-    "last_success_at": "2026-11-02T02:31:21Z",
+    "last_attempt_at": "2026-11-02T11:08:46Z",
+    "last_success_at": "2026-11-02T11:08:47Z",
     "provider": "codexreset-news.com public API (third-party archive)",
     "message": "候选原帖已更新；完成/范围仍需人工审核",
     "latest_count": 200,
-    "new_or_changed": 2
+    "new_or_changed": 3
   },
   "provenance_note": "工程 ZIP 原有历史资料，保留原始状态，不代表本次重新核验。",
   "source_posts": {
@@ -3246,7 +3246,7 @@
       "upstream_source": "https://x.com/thsottiaux",
       "upstream_channel": "x",
       "quota_verified": false,
-      "translation": "Day 28/ Banked 2/2(第 2 枚/共 2 枚 banked 重置已入账)"
+      "translation": "第 28 天／储备重置 2/2"
     },
     "2117035666332954818": {
       "id": "2117035666332954818",
@@ -3261,6 +3261,34 @@
       "upstream_channel": "x",
       "quota_verified": false,
       "translation": "@poteto @MyCrazyIdeal 承认我们几个月前就一起规划好这些也没关系"
+    },
+    "2117151862705230048": {
+      "id": "2117151862705230048",
+      "published_at": "2026-11-02T07:08:33Z",
+      "text": "@poteto I finished it though",
+      "url": "https://x.com/thsottiaux/status/2117151862705230048",
+      "kind_hint": "global",
+      "candidate_state": "other",
+      "is_reply": true,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": "@poteto 不过我已经通关了"
+    },
+    "2117151734506397716": {
+      "id": "2117151734506397716",
+      "published_at": "2026-11-02T07:08:02Z",
+      "text": "@poteto Game so good because poteto used all the compute and forced Elon to pull the plug\n\nhttps://t.co/NqmIAz",
+      "url": "https://x.com/thsottiaux/status/2117151734506397716",
+      "kind_hint": "global",
+      "candidate_state": "other",
+      "is_reply": true,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": "@poteto 游戏这么好玩,是因为 poteto 用光了所有算力,逼得 Elon 拔了插头"
     }
   },
   "review_queue": [
@@ -3276,7 +3304,7 @@
       "upstream_source": "https://x.com/thsottiaux",
       "upstream_channel": "x",
       "quota_verified": false,
-      "translation": "Day 28/ Banked 2/2(第 2 枚/共 2 枚 banked 重置已入账)"
+      "translation": "第 28 天／储备重置 2/2"
     },
     {
       "id": "2116942192497533418",
