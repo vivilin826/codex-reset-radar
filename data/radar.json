@@ -299,12 +299,12 @@
   ],
   "pipeline": {
     "state": "ok",
-    "last_attempt_at": "2026-11-02T11:08:46Z",
-    "last_success_at": "2026-11-02T11:08:47Z",
+    "last_attempt_at": "2026-11-02T20:47:29Z",
+    "last_success_at": "2026-11-02T20:47:30Z",
     "provider": "codexreset-news.com public API (third-party archive)",
     "message": "候选原帖已更新；完成/范围仍需人工审核",
     "latest_count": 200,
-    "new_or_changed": 3
+    "new_or_changed": 2
   },
   "provenance_note": "工程 ZIP 原有历史资料，保留原始状态，不代表本次重新核验。",
   "source_posts": {
@@ -3289,6 +3289,34 @@
       "upstream_channel": "x",
       "quota_verified": false,
       "translation": "@poteto 游戏这么好玩,是因为 poteto 用光了所有算力,逼得 Elon 拔了插头"
+    },
+    "2117283355427495983": {
+      "id": "2117283355427495983",
+      "published_at": "2026-11-02T15:51:03Z",
+      "text": "Your dot will choose the best model for the task, drawing on different models for different parts of the work.",
+      "url": "https://x.com/thsottiaux/status/2117283355427495983",
+      "kind_hint": "global",
+      "candidate_state": "other",
+      "is_reply": false,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": "你的 dot 会为任务选择最合适的模型,在工作的不同环节调用不同的模型。"
+    },
+    "2117283124833055196": {
+      "id": "2117283124833055196",
+      "published_at": "2026-11-02T15:50:08Z",
+      "text": "Fellow resetters, heads up that we're working on expanding the family of frontier models that power dots, including GPT-6 Astra and GPT-6.1 Terra and some others in the future. Terra brings speed and a nice personality upgrade, and will help us bring dots to more people.",
+      "url": "https://x.com/thsottiaux/status/2117283124833055196",
+      "kind_hint": "global",
+      "candidate_state": "other",
+      "is_reply": false,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": "各位 resetter 们,预告一下:我们正在扩展驱动 dots 的前沿模型家族,包括 GPT-6 Astra 和 GPT-6.1 Terra,未来还有其他模型。Terra 带来速度和不错的个性升级,将帮助我们把 dots 带给更多人。"
     }
   },
   "review_queue": [
