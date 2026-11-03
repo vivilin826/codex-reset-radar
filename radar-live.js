@@ -4,6 +4,14 @@
   const banner = document.createElement('section'); banner.className = 'tip'; banner.setAttribute('role','status');
   document.querySelector('.hero').after(banner);
   const text = (parent, tag, value, cls) => { const e = document.createElement(tag); e.textContent = value || ''; if(cls)e.className=cls; parent.append(e); return e; };
+  const plain = value => String(value||'')
+    .replace(/(?:Day\s*(\d+)\s*\/\s*)?Banked\s*(\d+)\s*\/\s*(\d+)/gi,(_,day,n,total)=>'第 '+n+' 次备用重置已公布（共 '+total+' 次）')
+    .replace(/Day\s*(\d+)\s*[:：/]/gi,'第 $1 天：')
+    .replace(/Full\s*\/\s*Global|Full Reset|Global Reset/gi,'直接重置额度')
+    .replace(/Banked Reset|banked resets?|Banked|储备重置/gi,'备用重置')
+    .replace(/\bReset\b/gi,'重置')
+    .replace(/\bUsage\b/g,'用量页面');
+  const shortTime = value => value ? new Date(value).toLocaleString('zh-CN',{timeZone:'Asia/Shanghai',month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit',hour12:false}) : '暂无';
   const time = value => value ? new Date(value).toLocaleString('zh-CN',{timeZone:'Asia/Shanghai',hour12:false}) : '尚无成功记录';
   /* 自包含样式：状态标签 + 折叠按钮（不依赖页面 CSS） */
   const style = document.createElement('style');
@@ -48,8 +56,9 @@
     const response=await fetch('data/radar.json',{cache:'no-store'}); if(!response.ok)throw new Error('HTTP '+response.status);
     const data=await response.json(), p=data.pipeline||{};
     const lag=p.state!=='ok'||!p.last_success_at||Date.now()-Date.parse(p.last_success_at)>2*3600000;
-    banner.textContent=(lag?'自动采集数据延迟（最近尝试 ':'自动采集正常（最近尝试 ')+time(p.last_attempt_at)+'；最近成功 '+time(p.last_success_at)+'）。具体到账以账号显示为准。';
-    document.getElementById('top-updated').textContent='采集 '+time(p.last_attempt_at);
+    banner.style.display=lag?'block':'none';
+    banner.textContent='消息更新暂时延迟，以下保留最近记录。最近更新：'+shortTime(p.last_success_at);
+    document.getElementById('top-updated').textContent='更新于 '+shortTime(p.last_success_at);
     const $=id=>document.getElementById(id);
     const posts=Object.values(data.source_posts||{}).filter(x=>
       !x.is_reply && /^https:\/\/x\.com\/thsottiaux\/status\/\d+$/.test(x.url||'') &&
@@ -58,36 +67,37 @@
       (['announcement_candidate','confirmation_candidate'].includes(x.candidate_state) && /\b(reset|banked|propagated)\b/i.test(x.text||'')))
     ).sort((a,b)=>b.published_at.localeCompare(a.published_at));
     const latest=posts[0],banked=latest && /\bbanked\b/i.test(latest.text);
-    $('hero-title').textContent=latest?(banked?'已有备用重置卡后续公告':'最新重置相关公告'):'等待新的公开消息';
-    $('hero-summary').textContent=latest?(latest.translation||latest.text)+'（第三方存档收录，非个人到账确认）':'不沿用过期预测。';
-    $('hero-time').textContent=latest?'公告时间 '+time(latest.published_at):'暂无公告';
-    $('status-label').textContent=banked?'Banked 后续公告':'公开消息已同步';
+    const installment=latest && latest.text.match(/Banked\s+(\d+)\/(\d+)/i);
+    $('hero-title').textContent=latest?(installment?'第 '+installment[1]+' 次备用重置已公布':banked?'有新的备用重置消息':'有新的额度重置消息'):'暂时没有新的重置消息';
+    $('hero-summary').textContent=banked?'相当于一张可以留着以后用的“重置卡”，不是立即把额度回满。':latest?plain(latest.translation||latest.text):'有新消息时，这里会自动更新。';
+    $('hero-time').hidden=true;
+    $('status-label').textContent=banked?'备用重置 · 可留待使用':'重置动态';
     if(latest)$('source-link').href=latest.url;
-    document.querySelector('.window-label').textContent='最新公告时间 · 北京时间';
-    $('win-start').textContent=latest?time(latest.published_at):'暂无';
-    $('win-start').style.fontSize='22px';
+    document.querySelector('.window-label').textContent='消息公布时间 · 北京时间';
+    $('win-start').textContent=latest?shortTime(latest.published_at):'暂无';
+    $('win-start').style.fontSize='24px';
     $('win-end').textContent='';
     document.querySelector('.window-arrow').hidden=true;
-    $('win-label').textContent='旧观察窗口已结束；备用重置不代表当前额度自动回满。';
-    $('judgment').textContent='公告时间不等于账号到账；具体资格、可用重置与余额以个人 Usage 为准。';
-    $('tip-text').textContent='云端定时采集并发布，无需开电脑或手动拉取。页面每 5 分钟检查新数据；来源异常时提示延迟。';
+    $('win-label').textContent=installment?'这次共安排 '+installment[2]+' 次备用重置，这是第 '+installment[1]+' 次的消息。':'点击下方按钮查看原始消息。';
+    $('judgment').textContent='你有没有收到、能不能使用，请在自己的账号里查看。';
+    $('tip-text').textContent=banked?'现在可以做什么？打开 Codex 的“设置 → 用量（Usage）”，查看有没有可用的备用重置。':'打开 Codex 的用量页面，确认自己的剩余额度。';
     const seen=new Set((data.events||[]).map(x=>x.source_url));
     for(const x of posts){
       if(seen.has(x.url))continue;
-      (data.events||(data.events=[])).push({id:x.id,title:x.translation||x.text,
-        published_at:x.published_at,status:'observed',status_label:'公开公告（第三方存档）',
-        summary:x.text+'；非个人到账确认。',source_url:x.url});
+      (data.events||(data.events=[])).push({id:x.id,title:plain(x.text),
+        published_at:x.published_at,status:'observed',status_label:'已公布',
+        summary:/banked/i.test(x.text)?'备用重置可以留待需要时使用，是否收到请查看自己的账号。':plain(x.translation||x.text),source_url:x.url});
       seen.add(x.url);
     }
     const followups=posts.filter(x=>/^(?:Day\s*\d+\s*\/\s*)?Banked\s+[12]\/2[.!]?$/i.test(x.text.trim()) &&
       x.published_at>='2026-11-01T00:00:00Z' && x.published_at<'2026-11-03T00:00:00Z');
     for(const x of data.predictions||[]){
       if(x.id==='p-20261031-banked' && followups.length===2){
-        x.status='observed';x.actual_kind='已收录 Banked 1/2 与 2/2 后续公告；旧窗口已结束，非个人到账确认';
+        x.status='observed';x.actual_kind='两次备用重置均有后续消息，请到自己的账号查看是否收到';
         x.actual_at=followups[0].published_at;x.confirmation_url=followups[0].url;
       }
     }
-    $('history').closest('.panel').querySelector('.panel-title').textContent='已收录的重置相关记录';
+    $('history').closest('.panel').hidden=true;
     $('stat-num').textContent=(data.events||[]).length;
     $('stat-label').textContent='公开记录（不等于重置次数）';
     $('stat-chip-announced').hidden=true;
@@ -95,7 +105,7 @@
     const version=p.last_attempt_at;
     setInterval(async()=>{
       if(p.state!=='ok'||Date.now()-Date.parse(p.last_success_at)>2*3600000){
-        banner.textContent='自动采集数据延迟；最近成功 '+time(p.last_success_at)+'。保留历史记录，不能据此判断没有新消息。';
+        banner.style.display='block'; banner.textContent='消息更新暂时延迟，以下保留最近记录。最近更新：'+shortTime(p.last_success_at);
         $('status-label').textContent='数据延迟';
       }
       if(document.visibilityState==='hidden')return;
@@ -104,8 +114,8 @@
         if(r.ok && (await r.json()).pipeline?.last_attempt_at!==version)location.reload();
       }catch(_){}
     },5*60*1000);
-    const labels = { pending:['待确认','rv-chip--pending'], fulfilled:['已兑现','rv-chip--fulfilled'], observed:['第三方记录','rv-chip--observed'], conditional:['活动规则','rv-chip--queue'] };
-    const combined=panel('重置预告与兑现记录','按照时间查看：预告了什么、什么时候发生，以及结果是否有证据。北京时间；到账以个人账号为准。');
+    const labels = { pending:['待确认','rv-chip--pending'], fulfilled:['已兑现','rv-chip--fulfilled'], observed:['已有后续','rv-chip--observed'], conditional:['活动规则','rv-chip--queue'] };
+    const combined=panel('最近的重置消息','按消息公布时间排列，点击来源可查看原帖。');
     const records=[], matched=new Set();
     for (const x of data.predictions||[]) {
       if(x.source_url) matched.add(x.source_url);
@@ -113,19 +123,19 @@
       const c=labels[x.status]||['待确认','rv-chip--pending'];
       const parts=['预告时间：'+time(x.created_at)+'；预计：'+(x.window||'未公布')+'。', {url:x.source_url,label:'预告来源'}, '　结果：'+(x.actual_kind||'尚无确认信息')+(x.actual_at?'（'+time(x.actual_at)+'）':'。')];
       if(x.confirmation_url) parts.push({url:x.confirmation_url,label:'结果来源'});
-      records.push({date:x.created_at||'',title:x.headline,parts,chip:c});
+      records.push({date:x.created_at||'',title:plain(x.headline),parts,chip:c});
     }
     for (const x of data.events||[]) {
       if(x.source_url && matched.has(x.source_url)) continue;
-      const c=x.status==='confirmed'?['历史确认','rv-chip--fulfilled']:x.status==='observed'?['第三方记录','rv-chip--observed']:['历史公告','rv-chip--pending'];
-      records.push({date:x.published_at||'',title:x.title,parts:['记录时间：'+time(x.published_at)+'；'+(x.status_label||'')+'。'+(x.summary||'')+' ',{url:x.source_url,label:'查看来源'}],chip:c});
+      const c=x.status==='confirmed'?['历史确认','rv-chip--fulfilled']:x.status==='observed'?['已公布','rv-chip--observed']:['历史公告','rv-chip--pending'];
+      records.push({date:x.published_at||'',title:plain(x.title),parts:['记录时间：'+time(x.published_at)+'；'+(x.status_label||'')+'。'+(x.summary||'')+' ',{url:x.source_url,label:'查看来源'}],chip:c});
     }
     records.sort((a,b)=>b.date.localeCompare(a.date));
-    for(const x of records) row(combined,x.title,x.parts,chip(x.chip[0],x.chip[1]));
+    for(const x of records) row(combined,plain(x.title),x.parts.map(part=>typeof part==='string'?plain(part):part),chip(x.chip[0],x.chip[1]));
     collapse(combined,5);
     document.getElementById('history').hidden=true;
     const statsDesc=document.querySelector('#history').closest('.panel').querySelector('.panel-sub');
     if(statsDesc) statsDesc.textContent='历史人工统计，非官方数字；下方可查看预告与结果。';
-    if(lag)document.getElementById('status-label').textContent='数据延迟 · 待核验';
-  } catch(e) {banner.textContent='自动采集数据暂时无法加载，保留历史页面；不能据此判断是否已重置。';document.getElementById('status-label').textContent='数据延迟 · 待核验';}
+    if(lag)document.getElementById('status-label').textContent='更新暂时延迟';
+  } catch(e) {banner.style.display='block'; banner.textContent='最新消息暂时加载失败，请稍后刷新。';document.getElementById('status-label').textContent='更新暂时延迟';}
 })();
