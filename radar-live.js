@@ -50,15 +50,60 @@
     const lag=p.state!=='ok'||!p.last_success_at||Date.now()-Date.parse(p.last_success_at)>2*3600000;
     banner.textContent=(lag?'自动采集数据延迟（最近尝试 ':'自动采集正常（最近尝试 ')+time(p.last_attempt_at)+'；最近成功 '+time(p.last_success_at)+'）。具体到账以账号显示为准。';
     document.getElementById('top-updated').textContent='采集 '+time(p.last_attempt_at);
-    document.getElementById('hero-time').textContent='历史判断，非实时确认';
-    // Only explicit reviewed projections may replace the historical hero.
-    const reviewed=data.homepage_verified;
-    if(reviewed && reviewed.source_url && reviewed.reviewed_at) {
-      document.getElementById('hero-title').textContent=reviewed.title;
-      document.getElementById('hero-summary').textContent=reviewed.summary;
-      document.getElementById('source-link').href=reviewed.source_url;
+    const $=id=>document.getElementById(id);
+    const posts=Object.values(data.source_posts||{}).filter(x=>
+      !x.is_reply && /^https:\/\/x\.com\/thsottiaux\/status\/\d+$/.test(x.url||'') &&
+      Number.isFinite(Date.parse(x.published_at)) && Date.parse(x.published_at)<=Date.now() &&
+      (/^(?:Day\s*\d+\s*\/\s*)?Banked\s+\d+\/\d+[.!]?$/i.test((x.text||'').trim()) ||
+      (['announcement_candidate','confirmation_candidate'].includes(x.candidate_state) && /\b(reset|banked|propagated)\b/i.test(x.text||'')))
+    ).sort((a,b)=>b.published_at.localeCompare(a.published_at));
+    const latest=posts[0],banked=latest && /\bbanked\b/i.test(latest.text);
+    $('hero-title').textContent=latest?(banked?'已有备用重置卡后续公告':'最新重置相关公告'):'等待新的公开消息';
+    $('hero-summary').textContent=latest?(latest.translation||latest.text)+'（第三方存档收录，非个人到账确认）':'不沿用过期预测。';
+    $('hero-time').textContent=latest?'公告时间 '+time(latest.published_at):'暂无公告';
+    $('status-label').textContent=banked?'Banked 后续公告':'公开消息已同步';
+    if(latest)$('source-link').href=latest.url;
+    document.querySelector('.window-label').textContent='最新公告时间 · 北京时间';
+    $('win-start').textContent=latest?time(latest.published_at):'暂无';
+    $('win-start').style.fontSize='22px';
+    $('win-end').textContent='';
+    document.querySelector('.window-arrow').hidden=true;
+    $('win-label').textContent='旧观察窗口已结束；备用重置不代表当前额度自动回满。';
+    $('judgment').textContent='公告时间不等于账号到账；具体资格、可用重置与余额以个人 Usage 为准。';
+    $('tip-text').textContent='云端定时采集并发布，无需开电脑或手动拉取。页面每 5 分钟检查新数据；来源异常时提示延迟。';
+    const seen=new Set((data.events||[]).map(x=>x.source_url));
+    for(const x of posts){
+      if(seen.has(x.url))continue;
+      (data.events||(data.events=[])).push({id:x.id,title:x.translation||x.text,
+        published_at:x.published_at,status:'observed',status_label:'公开公告（第三方存档）',
+        summary:x.text+'；非个人到账确认。',source_url:x.url});
+      seen.add(x.url);
     }
-    document.getElementById('judgment').textContent='历史预告，尚无新的核验确认；日期窗口可能已过期。以个人 Usage 为准。';
+    const followups=posts.filter(x=>/^(?:Day\s*\d+\s*\/\s*)?Banked\s+[12]\/2[.!]?$/i.test(x.text.trim()) &&
+      x.published_at>='2026-11-01T00:00:00Z' && x.published_at<'2026-11-03T00:00:00Z');
+    for(const x of data.predictions||[]){
+      if(x.id==='p-20261031-banked' && followups.length===2){
+        x.status='observed';x.actual_kind='已收录 Banked 1/2 与 2/2 后续公告；旧窗口已结束，非个人到账确认';
+        x.actual_at=followups[0].published_at;x.confirmation_url=followups[0].url;
+      }
+    }
+    $('history').closest('.panel').querySelector('.panel-title').textContent='已收录的重置相关记录';
+    $('stat-num').textContent=(data.events||[]).length;
+    $('stat-label').textContent='公开记录（不等于重置次数）';
+    $('stat-chip-announced').hidden=true;
+    $('stat-note').textContent='包含预告与后续公告，不统计个人到账或全员完成次数。';
+    const version=p.last_attempt_at;
+    setInterval(async()=>{
+      if(p.state!=='ok'||Date.now()-Date.parse(p.last_success_at)>2*3600000){
+        banner.textContent='自动采集数据延迟；最近成功 '+time(p.last_success_at)+'。保留历史记录，不能据此判断没有新消息。';
+        $('status-label').textContent='数据延迟';
+      }
+      if(document.visibilityState==='hidden')return;
+      try{
+        const r=await fetch('data/radar.json',{cache:'no-store'});
+        if(r.ok && (await r.json()).pipeline?.last_attempt_at!==version)location.reload();
+      }catch(_){}
+    },5*60*1000);
     const labels = { pending:['待确认','rv-chip--pending'], fulfilled:['已兑现','rv-chip--fulfilled'], observed:['第三方记录','rv-chip--observed'], conditional:['活动规则','rv-chip--queue'] };
     const combined=panel('重置预告与兑现记录','按照时间查看：预告了什么、什么时候发生，以及结果是否有证据。北京时间；到账以个人账号为准。');
     const records=[], matched=new Set();
