@@ -370,7 +370,7 @@
 
     <!-- ===== 页脚 ===== -->
     <footer>
-      本页由人工跟踪 Tibo（@thsottiaux）公开推文维护，与 OpenAI 无关。所有重置时间以你账号实际显示为准。
+      本页由云端定时采集 Tibo（@thsottiaux）的第三方公开存档并自动展示公告，与 OpenAI 无关。所有重置时间以你账号实际显示为准。
     </footer>
   </main>
 </div>
@@ -386,12 +386,12 @@
    stats 为累计统计：重置落地后 +1 到 doneCount，并发预告记得在 announcedCount +1。
    ================================================================ */
 const CONFIG = {
-  status: "announced",
-  heroTitle: "接下来两天将发放重置卡",
-  heroSummary: "Tibo 已预告发放重置卡，可存储后使用，具体发放时刻尚未公布。",
-  windowStartCn: "10/31 15:00",
-  windowEndCn: "11/02 16:00",
-  windowLabel: "对应美西 10/31、11/1 两个自然日，时刻未定",
+  status: "silent",
+  heroTitle: "正在读取最新公开消息",
+  heroSummary: "云端自动采集，公告与个人到账分别显示。",
+  windowStartCn: "",
+  windowEndCn: "",
+  windowLabel: "不沿用过期预测，最新状态加载中。",
   judgment: "官方仅预告日期，尚未确认完成，请以账号实际显示为准",
   sourceUrl: "https://x.com/thsottiaux/status/2116405414921384099",
   updatedAt: "2026-10-31 14:30",
@@ -489,6 +489,6 @@ const CONFIG = {
   }
 })();
 </script>
-<script src="radar-live.js?v=20261031-6"></script>
+<script src="radar-live.js?v=20261103-1"></script>
 </body>
 </html>
