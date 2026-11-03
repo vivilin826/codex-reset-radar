@@ -299,12 +299,12 @@
   ],
   "pipeline": {
     "state": "ok",
-    "last_attempt_at": "2026-11-03T02:56:00Z",
-    "last_success_at": "2026-11-03T02:56:01Z",
+    "last_attempt_at": "2026-11-03T10:53:21Z",
+    "last_success_at": "2026-11-03T10:53:21Z",
     "provider": "codexreset-news.com public API (third-party archive)",
     "message": "候选原帖已更新；完成/范围仍需人工审核",
     "latest_count": 200,
-    "new_or_changed": 2
+    "new_or_changed": 1
   },
   "provenance_note": "工程 ZIP 原有历史资料，保留原始状态，不代表本次重新核验。",
   "source_posts": {
@@ -3345,6 +3345,20 @@
       "upstream_channel": "x",
       "quota_verified": false,
       "translation": "@jxnlco 一直是你的粉丝"
+    },
+    "2117489367417803042": {
+      "id": "2117489367417803042",
+      "published_at": "2026-11-03T05:29:40Z",
+      "text": "Le GPT Fat",
+      "url": "https://x.com/thsottiaux/status/2117489367417803042",
+      "kind_hint": "global",
+      "candidate_state": "other",
+      "is_reply": false,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": "Le GPT Fat(GPT 胖——法语谐音梗)"
     }
   },
   "review_queue": [
