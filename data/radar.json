@@ -299,8 +299,8 @@
   ],
   "pipeline": {
     "state": "ok",
-    "last_attempt_at": "2026-11-02T20:47:29Z",
-    "last_success_at": "2026-11-02T20:47:30Z",
+    "last_attempt_at": "2026-11-03T02:56:00Z",
+    "last_success_at": "2026-11-03T02:56:01Z",
     "provider": "codexreset-news.com public API (third-party archive)",
     "message": "候选原帖已更新；完成/范围仍需人工审核",
     "latest_count": 200,
@@ -3317,6 +3317,34 @@
       "upstream_channel": "x",
       "quota_verified": false,
       "translation": "各位 resetter 们,预告一下:我们正在扩展驱动 dots 的前沿模型家族,包括 GPT-6 Astra 和 GPT-6.1 Terra,未来还有其他模型。Terra 带来速度和不错的个性升级,将帮助我们把 dots 带给更多人。"
+    },
+    "2117412956950638872": {
+      "id": "2117412956950638872",
+      "published_at": "2026-11-03T00:26:03Z",
+      "text": "We know some Git-fu. Excited the team is finally able to talk about it a bit. Massive props to @tnm and team",
+      "url": "https://x.com/thsottiaux/status/2117412956950638872",
+      "kind_hint": "global",
+      "candidate_state": "other",
+      "is_reply": false,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": "我们也会点 Git 功夫。很高兴团队终于能稍微聊聊这个了。向 @tnm 和团队致以巨大敬意"
+    },
+    "2117364233210151160": {
+      "id": "2117364233210151160",
+      "published_at": "2026-11-02T21:12:26Z",
+      "text": "@jxnlco Always been a fan",
+      "url": "https://x.com/thsottiaux/status/2117364233210151160",
+      "kind_hint": "global",
+      "candidate_state": "other",
+      "is_reply": true,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": "@jxnlco 一直是你的粉丝"
     }
   },
   "review_queue": [
