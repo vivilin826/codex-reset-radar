@@ -299,12 +299,12 @@
   ],
   "pipeline": {
     "state": "ok",
-    "last_attempt_at": "2026-11-03T23:59:20Z",
-    "last_success_at": "2026-11-03T23:59:21Z",
+    "last_attempt_at": "2026-11-04T06:23:27Z",
+    "last_success_at": "2026-11-04T06:23:29Z",
     "provider": "codexreset-news.com public API (third-party archive)",
     "message": "候选原帖已更新；完成/范围仍需人工审核",
     "latest_count": 200,
-    "new_or_changed": 0
+    "new_or_changed": 3
   },
   "provenance_note": "工程 ZIP 原有历史资料，保留原始状态，不代表本次重新核验。",
   "source_posts": {
@@ -3359,6 +3359,48 @@
       "upstream_channel": "x",
       "quota_verified": false,
       "translation": "Le GPT Fat(GPT 胖——法语谐音梗)"
+    },
+    "2117746467058405665": {
+      "id": "2117746467058405665",
+      "published_at": "2026-11-03T22:31:18Z",
+      "text": "Things will change again and again and again. We're still very early and agents today are incredible, and yet so frustrating still. Can't wait to crack things to get that flow state back. Long journey ahead.",
+      "url": "https://x.com/thsottiaux/status/2117746467058405665",
+      "kind_hint": "global",
+      "candidate_state": "other",
+      "is_reply": false,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": "事情会一次又一次地改变。我们仍处于极早期,今天的 agent 已经很惊人了,但仍然让人沮丧。等不及要攻克难题找回心流状态了。前路漫长。"
+    },
+    "2117515752588853710": {
+      "id": "2117515752588853710",
+      "published_at": "2026-11-03T07:14:31Z",
+      "text": "@Raitox_tech 🫨",
+      "url": "https://x.com/thsottiaux/status/2117515752588853710",
+      "kind_hint": "global",
+      "candidate_state": "other",
+      "is_reply": true,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": "@Raitox_tech 🫨"
+    },
+    "2117506709417795626": {
+      "id": "2117506709417795626",
+      "published_at": "2026-11-03T06:38:35Z",
+      "text": "@_aidan_clark_ twitter really",
+      "url": "https://x.com/thsottiaux/status/2117506709417795626",
+      "kind_hint": "global",
+      "candidate_state": "other",
+      "is_reply": true,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": "@_aidan_clark_ 还真是 Twitter 啊"
     }
   },
   "review_queue": [
