@@ -299,12 +299,12 @@
   ],
   "pipeline": {
     "state": "ok",
-    "last_attempt_at": "2026-11-05T10:56:58Z",
-    "last_success_at": "2026-11-05T10:56:59Z",
+    "last_attempt_at": "2026-11-05T18:45:40Z",
+    "last_success_at": "2026-11-05T18:45:41Z",
     "provider": "codexreset-news.com public API (third-party archive)",
     "message": "候选原帖已更新；完成/范围仍需人工审核",
     "latest_count": 200,
-    "new_or_changed": 10
+    "new_or_changed": 3
   },
   "provenance_note": "工程 ZIP 原有历史资料，保留原始状态，不代表本次重新核验。",
   "source_posts": {
@@ -3793,6 +3793,48 @@
       "upstream_channel": "x",
       "quota_verified": false,
       "translation": "@jonoalford 我们需要眼球(关注度)"
+    },
+    "2118402103907655903": {
+      "id": "2118402103907655903",
+      "published_at": "2026-11-05T17:56:34Z",
+      "text": "Our latest cyber-specialized model is out. It's in its own league on many cyber-specific use cases. Available through Daybreak Red access.",
+      "url": "https://x.com/thsottiaux/status/2118402103907655903",
+      "kind_hint": "global",
+      "candidate_state": "other",
+      "is_reply": false,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": "我们最新的网络安全专用模型已发布。它在许多安全专属用例上独树一帜。可通过 Daybreak Red 访问权限使用。"
+    },
+    "2118401691032973416": {
+      "id": "2118401691032973416",
+      "published_at": "2026-11-05T17:54:55Z",
+      "text": "@ajambrosino Bunch of interesting buttons here: https://t.co/Qe9q3hPcGx",
+      "url": "https://x.com/thsottiaux/status/2118401691032973416",
+      "kind_hint": "global",
+      "candidate_state": "other",
+      "is_reply": true,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": "@ajambrosino 这里有好多有趣的按钮:"
+    },
+    "2118376946652557613": {
+      "id": "2118376946652557613",
+      "published_at": "2026-11-05T16:16:36Z",
+      "text": "@ohayou792 Who comes up with these haha. Dane Starbuck. Haha",
+      "url": "https://x.com/thsottiaux/status/2118376946652557613",
+      "kind_hint": "global",
+      "candidate_state": "other",
+      "is_reply": true,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": "@ohayou792 这些都是谁想出来的哈哈。Dane Starbuck。哈哈"
     }
   },
   "review_queue": [
