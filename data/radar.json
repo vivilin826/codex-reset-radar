@@ -299,12 +299,12 @@
   ],
   "pipeline": {
     "state": "ok",
-    "last_attempt_at": "2026-11-05T18:45:40Z",
-    "last_success_at": "2026-11-05T18:45:41Z",
+    "last_attempt_at": "2026-11-06T00:16:47Z",
+    "last_success_at": "2026-11-06T00:16:48Z",
     "provider": "codexreset-news.com public API (third-party archive)",
     "message": "候选原帖已更新；完成/范围仍需人工审核",
     "latest_count": 200,
-    "new_or_changed": 3
+    "new_or_changed": 6
   },
   "provenance_note": "工程 ZIP 原有历史资料，保留原始状态，不代表本次重新核验。",
   "source_posts": {
@@ -3835,6 +3835,90 @@
       "upstream_channel": "x",
       "quota_verified": false,
       "translation": "@ohayou792 这些都是谁想出来的哈哈。Dane Starbuck。哈哈"
+    },
+    "2118473288368406582": {
+      "id": "2118473288368406582",
+      "published_at": "2026-11-05T22:39:25Z",
+      "text": "Generating*",
+      "url": "https://x.com/thsottiaux/status/2118473288368406582",
+      "kind_hint": "global",
+      "candidate_state": "other",
+      "is_reply": false,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": "生成中*(语法更正梗:generate→generate)"
+    },
+    "2118470016127598724": {
+      "id": "2118470016127598724",
+      "published_at": "2026-11-05T22:26:25Z",
+      "text": "If I count well, that's more than 500M images per day.",
+      "url": "https://x.com/thsottiaux/status/2118470016127598724",
+      "kind_hint": "global",
+      "candidate_state": "other",
+      "is_reply": false,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": "如果我没算错,那就是每天超过 5 亿张图片。"
+    },
+    "2118469869423526046": {
+      "id": "2118469869423526046",
+      "published_at": "2026-11-05T22:25:50Z",
+      "text": "@JustinBleuel @ChatGPT 👀",
+      "url": "https://x.com/thsottiaux/status/2118469869423526046",
+      "kind_hint": "global",
+      "candidate_state": "other",
+      "is_reply": true,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": "@JustinBleuel @ChatGPT 👀"
+    },
+    "2118469621011677521": {
+      "id": "2118469621011677521",
+      "published_at": "2026-11-05T22:24:51Z",
+      "text": "Wild stat. We are now generate more than 4B images per week across ChatGPT and the API, up from the more than 3B per week only 8 weeks ago.",
+      "url": "https://x.com/thsottiaux/status/2118469621011677521",
+      "kind_hint": "global",
+      "candidate_state": "other",
+      "is_reply": false,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": "惊人的数据。我们现在在 ChatGPT 和 API 上每周生成超过 40 亿张图片,而仅仅 8 周前还是每周 30 多亿张。"
+    },
+    "2118444105969926407": {
+      "id": "2118444105969926407",
+      "published_at": "2026-11-05T20:43:28Z",
+      "text": "Come push the frontier of fluffiness https://t.co/Iq1colT66z",
+      "url": "https://x.com/thsottiaux/status/2118444105969926407",
+      "kind_hint": "global",
+      "candidate_state": "other",
+      "is_reply": false,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": "来一起推动「蓬松度」的前沿吧"
+    },
+    "2118443570298568886": {
+      "id": "2118443570298568886",
+      "published_at": "2026-11-05T20:41:20Z",
+      "text": "@kimmonismus Don't know, I live in the basement now",
+      "url": "https://x.com/thsottiaux/status/2118443570298568886",
+      "kind_hint": "global",
+      "candidate_state": "other",
+      "is_reply": true,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": "@kimmonismus 不知道,我现在住在地下室了"
     }
   },
   "review_queue": [
