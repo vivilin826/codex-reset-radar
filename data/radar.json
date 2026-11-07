@@ -299,12 +299,12 @@
   ],
   "pipeline": {
     "state": "ok",
-    "last_attempt_at": "2026-11-06T20:54:34Z",
-    "last_success_at": "2026-11-06T20:54:35Z",
+    "last_attempt_at": "2026-11-07T00:56:43Z",
+    "last_success_at": "2026-11-07T00:56:44Z",
     "provider": "codexreset-news.com public API (third-party archive)",
     "message": "候选原帖已更新；完成/范围仍需人工审核",
     "latest_count": 200,
-    "new_or_changed": 0
+    "new_or_changed": 2
   },
   "provenance_note": "工程 ZIP 原有历史资料，保留原始状态，不代表本次重新核验。",
   "source_posts": {
@@ -4017,6 +4017,34 @@
       "upstream_channel": "x",
       "quota_verified": false,
       "translation": "@Layton_Gott 地下室满是奇观"
+    },
+    "2118802895604994463": {
+      "id": "2118802895604994463",
+      "published_at": "2026-11-06T20:29:10Z",
+      "text": "More things to come, join our Cyber at the Frontier livestream on November 12, 10am PT: https://t.co/GiwgmJXL1t",
+      "url": "https://x.com/thsottiaux/status/2118802895604994463",
+      "kind_hint": "global",
+      "candidate_state": "other",
+      "is_reply": true,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": ""
+    },
+    "2118802796749508830": {
+      "id": "2118802796749508830",
+      "published_at": "2026-11-06T20:28:46Z",
+      "text": "@andrewcshin7 No",
+      "url": "https://x.com/thsottiaux/status/2118802796749508830",
+      "kind_hint": "global",
+      "candidate_state": "other",
+      "is_reply": true,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": ""
     }
   },
   "review_queue": [
