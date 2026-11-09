@@ -299,12 +299,12 @@
   ],
   "pipeline": {
     "state": "ok",
-    "last_attempt_at": "2026-11-08T21:11:31Z",
-    "last_success_at": "2026-11-08T21:11:31Z",
+    "last_attempt_at": "2026-11-09T00:55:35Z",
+    "last_success_at": "2026-11-09T00:55:36Z",
     "provider": "codexreset-news.com public API (third-party archive)",
     "message": "候选原帖已更新；完成/范围仍需人工审核",
     "latest_count": 200,
-    "new_or_changed": 0
+    "new_or_changed": 2
   },
   "provenance_note": "工程 ZIP 原有历史资料，保留原始状态，不代表本次重新核验。",
   "source_posts": {
@@ -4387,6 +4387,34 @@
       "published_at": "2026-11-08T04:57:36Z",
       "text": "@hakmgpt That is not correct.",
       "url": "https://x.com/thsottiaux/status/2119293235353006321",
+      "kind_hint": "global",
+      "candidate_state": "other",
+      "is_reply": true,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": ""
+    },
+    "2119532403593191733": {
+      "id": "2119532403593191733",
+      "published_at": "2026-11-08T20:47:58Z",
+      "text": "@garrytan Thanks for running those and publishing",
+      "url": "https://x.com/thsottiaux/status/2119532403593191733",
+      "kind_hint": "global",
+      "candidate_state": "other",
+      "is_reply": true,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": ""
+    },
+    "2119528988033073501": {
+      "id": "2119528988033073501",
+      "published_at": "2026-11-08T20:34:24Z",
+      "text": "@MillionInt Jerry, I challenge you to make a game",
+      "url": "https://x.com/thsottiaux/status/2119528988033073501",
       "kind_hint": "global",
       "candidate_state": "other",
       "is_reply": true,
