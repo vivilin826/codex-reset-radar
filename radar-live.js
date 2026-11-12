@@ -66,21 +66,45 @@
       (/^(?:Day\s*\d+\s*\/\s*)?Banked\s+\d+\/\d+[.!]?$/i.test((x.text||'').trim()) ||
       (['announcement_candidate','confirmation_candidate'].includes(x.candidate_state) && /\b(reset|banked|propagated)\b/i.test(x.text||'')))
     ).sort((a,b)=>b.published_at.localeCompare(a.published_at));
-    const latest=posts[0],banked=latest && /\bbanked\b/i.test(latest.text);
-    const installment=latest && latest.text.match(/Banked\s+(\d+)\/(\d+)/i);
-    $('hero-title').textContent=latest?(installment?'第 '+installment[1]+' 次备用重置已公布':banked?'有新的备用重置消息':'有新的额度重置消息'):'暂时没有新的重置消息';
-    $('hero-summary').textContent=banked?'相当于一张可以留着以后用的“重置卡”，不是立即把额度回满。':latest?plain(latest.translation||latest.text):'有新消息时，这里会自动更新。';
-    $('hero-time').hidden=true;
-    $('status-label').textContent=banked?'备用重置 · 可留待使用':'重置动态';
-    if(latest)$('source-link').href=latest.url;
-    document.querySelector('.window-label').textContent='消息公布时间 · 北京时间';
-    $('win-start').textContent=latest?shortTime(latest.published_at):'暂无';
-    $('win-start').style.fontSize='24px';
-    $('win-end').textContent='';
-    document.querySelector('.window-arrow').hidden=true;
-    $('win-label').textContent=installment?'这次共安排 '+installment[2]+' 次备用重置，这是第 '+installment[1]+' 次的消息。':'点击下方按钮查看原始消息。';
-    $('judgment').textContent='你有没有收到、能不能使用，请在自己的账号里查看。';
-    $('tip-text').textContent=banked?'现在可以做什么？打开 Codex 的“设置 → 用量（Usage）”，查看有没有可用的备用重置。':'打开 Codex 的用量页面，确认自己的剩余额度。';
+    // The wording and Beijing-time window were reviewed against this specific reply.
+    const hint = data.source_posts?.['2120410480204525936'];
+    const windowEnd = Date.parse('2026-11-13T16:00:00+08:00');
+    const confirmedBankedIds = new Set(['2116692529970311254', '2117035794678546764']);
+    const latestConfirmedAt = Math.max(
+      ...posts.filter(post => confirmedBankedIds.has(post.id)).map(post => Date.parse(post.published_at)),
+      ...(data.events || []).filter(event => event.status === 'confirmed').map(event => Date.parse(event.published_at)).filter(Number.isFinite)
+    );
+    const matchingConfirmation = hint && (data.events || []).some(event =>
+      event.status === 'confirmed' && event.type === 'banked' &&
+      Date.parse(event.published_at) >= Date.parse(hint.published_at));
+    const hasHint = hint && !matchingConfirmation;
+    const activeHint = hasHint && Date.now() < windowEnd;
+    const latestAnnouncement = posts.find(post =>
+      post.candidate_state === 'announcement_candidate' && Date.parse(post.published_at) > latestConfirmedAt);
+    const currentSource = activeHint ? hint : latestAnnouncement;
+    const window = document.querySelector('.window');
+    window.hidden = !activeHint;
+    $('hero-time').hidden = true;
+    $('status-label').textContent = currentSource ? '预测 · 等待确认' : '预测';
+    $('hero-title').textContent = activeHint ? '周四可能发放备用重置' :
+      latestAnnouncement ? '有新的重置预告' : '暂时没有新的重置预测';
+    $('hero-summary').textContent = activeHint ?
+      'Tibo 说周四可能会发一张备用重置卡。具体时间和适用套餐还没公布。' :
+      latestAnnouncement ? plain(latestAnnouncement.translation || latestAnnouncement.text) :
+      '已确认的消息可以在下方查看。';
+    $('source-link').hidden = !currentSource;
+    if (currentSource) $('source-link').href = currentSource.url;
+    document.querySelector('.window-label').textContent = '预计观察时间 · 北京时间';
+    $('win-start').textContent = '11/12 16:00';
+    $('win-end').textContent = '11/13 16:00';
+    $('win-label').textContent = '按美西周四换算，具体发放时间尚未公布。';
+    $('judgment').textContent = activeHint ? '这次仍在等待发放确认。' : '';
+    $('judgment').closest('.judgment').hidden = !activeHint;
+    $('tip-text').textContent = '收到备用重置后，可以留到需要时再用。在 Codex 的「设置 → 用量」查看。';
+    if (activeHint) {
+      // Re-evaluate the forecast even if the browser stays open past the window.
+      setTimeout(() => location.reload(), windowEnd - Date.now() + 500);
+    }
     const seen=new Set((data.events||[]).map(x=>x.source_url));
     for(const x of posts){
       if(seen.has(x.url))continue;
@@ -115,23 +139,43 @@
       }catch(_){}
     },5*60*1000);
     const labels = { pending:['待确认','rv-chip--pending'], fulfilled:['已兑现','rv-chip--fulfilled'], observed:['已有后续','rv-chip--observed'], conditional:['活动规则','rv-chip--queue'] };
-    const combined=panel('最近的重置消息','按消息公布时间排列，点击来源可查看原帖。');
+    const confirmedRecords=panel('已确认的重置','这里记录公开确认的重置消息。个人是否收到，请查看账号用量。');
+    const combined=panel('其他重置消息','这里可以查看往期预告和相关消息。');
     const records=[], matched=new Set();
     for (const x of data.predictions||[]) {
       if(x.source_url) matched.add(x.source_url);
-      if(x.confirmation_url) matched.add(x.confirmation_url);
+      if(x.confirmation_url && x.status!=='fulfilled') matched.add(x.confirmation_url);
       const c=labels[x.status]||['待确认','rv-chip--pending'];
       const parts=['预告时间：'+time(x.created_at)+'；预计：'+(x.window||'未公布')+'。', {url:x.source_url,label:'预告来源'}, '　结果：'+(x.actual_kind||'尚无确认信息')+(x.actual_at?'（'+time(x.actual_at)+'）':'。')];
       if(x.confirmation_url) parts.push({url:x.confirmation_url,label:'结果来源'});
-      records.push({date:x.created_at||'',title:plain(x.headline),parts,chip:c});
+      if (x.status !== 'fulfilled' || !(data.events || []).some(event =>
+        event.status === 'confirmed' && event.source_url === x.confirmation_url)) {
+        const confirmed = x.status === 'fulfilled';
+        records.push({date:(confirmed ? x.actual_at : x.created_at)||'',title:plain(x.headline),parts,chip:c,confirmed});
+      }
     }
     for (const x of data.events||[]) {
-      if(x.source_url && matched.has(x.source_url)) continue;
-      const c=x.status==='confirmed'?['历史确认','rv-chip--fulfilled']:x.status==='observed'?['已公布','rv-chip--observed']:['历史公告','rv-chip--pending'];
-      records.push({date:x.published_at||'',title:plain(x.title),parts:['记录时间：'+time(x.published_at)+'；'+(x.status_label||'')+'。'+(x.summary||'')+' ',{url:x.source_url,label:'查看来源'}],chip:c});
+      if(x.source_url && matched.has(x.source_url) && !confirmedBankedIds.has(String(x.id))) continue;
+      const bankedConfirmed = confirmedBankedIds.has(String(x.id));
+      const confirmed = bankedConfirmed || x.status === 'confirmed';
+      const c = confirmed ? ['已确认','rv-chip--fulfilled'] : x.status === 'observed' ?
+        ['已公布','rv-chip--observed'] : ['历史公告','rv-chip--pending'];
+      const summary = bankedConfirmed ? 'Tibo 已公布本次备用重置。个人是否收到请查看账号用量。' : x.summary || '';
+      records.push({date:x.published_at||'',title:plain(x.title),
+        parts:[shortTime(x.published_at)+'（北京时间）。'+summary+' ',{url:x.source_url,label:'查看原帖'}],
+        chip:c,confirmed});
+    }
+    if (hasHint && !activeHint) {
+      records.push({date:hint.published_at,title:'周四可能发放备用重置',parts:[
+        '预计观察时间已结束，暂无发放确认。',{url:hint.url,label:'查看原帖'}],
+        chip:['等待确认','rv-chip--pending']});
     }
     records.sort((a,b)=>b.date.localeCompare(a.date));
-    for(const x of records) row(combined,plain(x.title),x.parts.map(part=>typeof part==='string'?plain(part):part),chip(x.chip[0],x.chip[1]));
+    for(const x of records) {
+      row(x.confirmed ? confirmedRecords : combined,plain(x.title),
+        x.parts.map(part=>typeof part==='string'?plain(part):part),chip(x.chip[0],x.chip[1]));
+    }
+    collapse(confirmedRecords,5);
     collapse(combined,5);
     document.getElementById('history').hidden=true;
     const statsDesc=document.querySelector('#history').closest('.panel').querySelector('.panel-sub');
