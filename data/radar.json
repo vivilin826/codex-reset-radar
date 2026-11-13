@@ -299,8 +299,8 @@
   ],
   "pipeline": {
     "state": "ok",
-    "last_attempt_at": "2026-11-13T07:58:41Z",
-    "last_success_at": "2026-11-13T07:58:42Z",
+    "last_attempt_at": "2026-11-13T16:25:00Z",
+    "last_success_at": "2026-11-13T16:25:02Z",
     "provider": "codexreset-news.com public API (third-party archive)",
     "message": "候选原帖已更新；完成/范围仍需人工审核",
     "latest_count": 200,
@@ -4619,6 +4619,48 @@
       "upstream_channel": "x",
       "quota_verified": false,
       "translation": "今天我们给 dots 推出了几项不错的更新。重置卡也已经激活，应该很快就会陆续发到大家的账户里！"
+    },
+    "2121134582527594929": {
+      "id": "2121134582527594929",
+      "published_at": "2026-11-13T06:54:27Z",
+      "text": "@argofowl Hi 👋 Doing well. Team is busy",
+      "url": "https://x.com/thsottiaux/status/2121134582527594929",
+      "kind_hint": "global",
+      "candidate_state": "other",
+      "is_reply": true,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": ""
+    },
+    "2121132369696747608": {
+      "id": "2121132369696747608",
+      "published_at": "2026-11-13T06:45:40Z",
+      "text": "@snowy_smile_ Sounds like bliss",
+      "url": "https://x.com/thsottiaux/status/2121132369696747608",
+      "kind_hint": "global",
+      "candidate_state": "other",
+      "is_reply": true,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": ""
+    },
+    "2121132035653894561": {
+      "id": "2121132035653894561",
+      "published_at": "2026-11-13T06:44:20Z",
+      "text": "@ajambrosino sino",
+      "url": "https://x.com/thsottiaux/status/2121132035653894561",
+      "kind_hint": "global",
+      "candidate_state": "other",
+      "is_reply": true,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": ""
     }
   },
   "review_queue": [
