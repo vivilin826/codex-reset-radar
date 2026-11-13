@@ -299,12 +299,12 @@
   ],
   "pipeline": {
     "state": "ok",
-    "last_attempt_at": "2026-11-13T00:25:27Z",
-    "last_success_at": "2026-11-13T00:25:28Z",
+    "last_attempt_at": "2026-11-13T07:58:41Z",
+    "last_success_at": "2026-11-13T07:58:42Z",
     "provider": "codexreset-news.com public API (third-party archive)",
     "message": "候选原帖已更新；完成/范围仍需人工审核",
     "latest_count": 200,
-    "new_or_changed": 0
+    "new_or_changed": 3
   },
   "provenance_note": "工程 ZIP 原有历史资料，保留原始状态，不代表本次重新核验。",
   "source_posts": {
@@ -4577,9 +4577,65 @@
       "upstream_channel": "x",
       "quota_verified": false,
       "translation": ""
+    },
+    "2121062974161092792": {
+      "id": "2121062974161092792",
+      "published_at": "2026-11-13T02:09:55Z",
+      "text": "How can codex be improved? Try not to say model.",
+      "url": "https://x.com/thsottiaux/status/2121062974161092792",
+      "kind_hint": "global",
+      "candidate_state": "other",
+      "is_reply": false,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": ""
+    },
+    "2121036562058400200": {
+      "id": "2121036562058400200",
+      "published_at": "2026-11-13T00:24:58Z",
+      "text": "We announced new tools we're developing for cybersecurity today across automated patching and automated red teaming. Watch the recording here https://t.co/fW371aFhB5",
+      "url": "https://x.com/thsottiaux/status/2121036562058400200",
+      "kind_hint": "global",
+      "candidate_state": "other",
+      "is_reply": false,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": ""
+    },
+    "2120999993079451919": {
+      "id": "2120999993079451919",
+      "published_at": "2026-11-12T21:59:39Z",
+      "text": "We shipped some good updates to dots today and the banked reset has been activated and should land in everyones accounts sometime soon!",
+      "url": "https://x.com/thsottiaux/status/2120999993079451919",
+      "kind_hint": "banked",
+      "candidate_state": "announcement_candidate",
+      "is_reply": false,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": "今天我们给 dots 推出了几项不错的更新。重置卡也已经激活，应该很快就会陆续发到大家的账户里！"
     }
   },
   "review_queue": [
+    {
+      "id": "2120999993079451919",
+      "published_at": "2026-11-12T21:59:39Z",
+      "text": "We shipped some good updates to dots today and the banked reset has been activated and should land in everyones accounts sometime soon!",
+      "url": "https://x.com/thsottiaux/status/2120999993079451919",
+      "kind_hint": "banked",
+      "candidate_state": "announcement_candidate",
+      "is_reply": false,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": "今天我们给 dots 推出了几项不错的更新。重置卡也已经激活，应该很快就会陆续发到大家的账户里！"
+    },
     {
       "id": "2120410480204525936",
       "published_at": "2026-11-11T06:57:08Z",
@@ -5257,20 +5313,6 @@
       "published_at": "2026-09-05T00:39:25Z",
       "text": "Astra rolled out ahead of schedule, and every Plus, Pro and Business user still gets a full banked reset that day, landing by end of day.",
       "url": "https://x.com/thsottiaux/status/2096035437299237298",
-      "kind_hint": "banked",
-      "candidate_state": "announcement_candidate",
-      "is_reply": false,
-      "original_verification": "third_party_copy",
-      "upstream_source": "https://codex-reset.com/",
-      "upstream_channel": "timeline",
-      "quota_verified": false,
-      "translation": ""
-    },
-    {
-      "id": "2095979536043401428",
-      "published_at": "2026-09-04T20:57:17Z",
-      "text": "Astra access compensation, second day: a banked reset for the Plus and Business users still without Astra, landing by end of day.",
-      "url": "https://x.com/thsottiaux/status/2095979536043401428",
       "kind_hint": "banked",
       "candidate_state": "announcement_candidate",
       "is_reply": false,
