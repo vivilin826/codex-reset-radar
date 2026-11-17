@@ -299,12 +299,12 @@
   ],
   "pipeline": {
     "state": "ok",
-    "last_attempt_at": "2026-11-17T03:54:19Z",
-    "last_success_at": "2026-11-17T03:54:19Z",
+    "last_attempt_at": "2026-11-17T13:27:18Z",
+    "last_success_at": "2026-11-17T13:27:19Z",
     "provider": "codexreset-news.com public API (third-party archive)",
     "message": "候选原帖已更新；完成/范围仍需人工审核",
     "latest_count": 200,
-    "new_or_changed": 0
+    "new_or_changed": 1
   },
   "provenance_note": "工程 ZIP 原有历史资料，保留原始状态，不代表本次重新核验。",
   "source_posts": {
@@ -4675,6 +4675,20 @@
       "upstream_channel": "x",
       "quota_verified": false,
       "translation": "Cyber 团队想听取你对 Daybreak 的反馈。模型、codex 插件、蓝/红队访问权限、文档、红队测试与防御工厂……我们有什么可以做得更好或改进的？"
+    },
+    "2122534533216268747": {
+      "id": "2122534533216268747",
+      "published_at": "2026-11-17T03:37:22Z",
+      "text": "@AdamHoltererer 6.1 Sol forever https://t.co/1aDFb686jX",
+      "url": "https://x.com/thsottiaux/status/2122534533216268747",
+      "kind_hint": "global",
+      "candidate_state": "other",
+      "is_reply": true,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": "@AdamHoltererer 6.1 Sol 永远 https://t.co/1aDFb686jX"
     }
   },
   "review_queue": [
