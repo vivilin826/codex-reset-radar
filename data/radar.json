@@ -297,12 +297,12 @@
   ],
   "pipeline": {
     "state": "ok",
-    "last_attempt_at": "2026-11-19T13:08:10Z",
-    "last_success_at": "2026-11-19T13:08:11Z",
+    "last_attempt_at": "2026-11-19T21:34:55Z",
+    "last_success_at": "2026-11-19T21:34:57Z",
     "provider": "codexreset-news.com public API (third-party archive)",
     "message": "候选原帖已更新；完成/范围仍需人工审核",
     "latest_count": 200,
-    "new_or_changed": 0,
+    "new_or_changed": 3,
     "auto_review": {
       "confirmed_auto": 0,
       "rule": "tibo_done + third_party_landed within 24h"
@@ -4929,6 +4929,48 @@
       "upstream_channel": "x",
       "quota_verified": false,
       "translation": "@Leapofcode GG（打得好）"
+    },
+    "2123505661741084830": {
+      "id": "2123505661741084830",
+      "published_at": "2026-11-19T19:56:17Z",
+      "text": "New Sol being particularly popular.",
+      "url": "https://x.com/thsottiaux/status/2123505661741084830",
+      "kind_hint": "global",
+      "candidate_state": "other",
+      "is_reply": true,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": "新版 Sol 特别受欢迎。"
+    },
+    "2123505331531882923": {
+      "id": "2123505331531882923",
+      "published_at": "2026-11-19T19:54:58Z",
+      "text": "Tokens go brrrrrr. Going to need more compute.",
+      "url": "https://x.com/thsottiaux/status/2123505331531882923",
+      "kind_hint": "global",
+      "candidate_state": "other",
+      "is_reply": false,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": "Token 呼呼地烧。得要更多算力了。"
+    },
+    "2123498899298210201": {
+      "id": "2123498899298210201",
+      "published_at": "2026-11-19T19:29:24Z",
+      "text": "@_simonsmith Max is for benchmaxxxing",
+      "url": "https://x.com/thsottiaux/status/2123498899298210201",
+      "kind_hint": "global",
+      "candidate_state": "other",
+      "is_reply": true,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": "@_simonsmith Max 是用来跑极限基准测试的"
     }
   },
   "review_queue": [
