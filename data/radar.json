@@ -3,17 +3,15 @@
   "verified_at": "2026-10-31T06:15:00Z",
   "status": {
     "emoji": "🎟️",
-    "title": "Tibo 预告：未来两天发重置卡",
-    "description": "历史资料快照；自动采集的新消息单独列为待核验，不代表额度已重置。"
+    "key": "announced",
+    "title": "Day 26：未来两天 Banked Reset 预告",
+    "description": "预告尚未双来源落地确认，窗口可能变化。"
   },
   "forecast": {
     "label": "明确预告 · Banked",
-    "confidence": "预告可信度：高 / 到账尚未确认",
+    "confidence": "预告可信度：待双来源确认",
     "window": "10 月 31 日—11 月 2 日重点关注",
-    "subtitle": "北京时间 · 原帖未给出具体发放小时，区间为宽泛观察而非承诺截止",
-    "reason": "Tibo 在 Day 26 帖子中说未来两天会有 banked resets。原文没有确认具体资格、套餐及生效时刻。这个观察区间是对相对日期的宽泛换算；实际到账须以新的完成帖或个人 Usage 确认。",
-    "original_text": "Next two days will be resets… banked… do with this what you may 👀.",
-    "source_url": "https://x.com/thsottiaux/status/2116405414921384099"
+    "reason": "Tibo 在 Day 26 帖子中说未来两天会有 banked resets。原文没有确认具体资格、套餐及生效时刻。这个观察区间是对相对日期的宽泛换算；实际到账须以新的完成帖或个人 Usage 确认。"
   },
   "last_reset": {
     "display": "10 月 28 日 14:29",
@@ -22,8 +20,8 @@
     "explanation": "10 月 31 日 Banked 仍处于预告状态"
   },
   "advice": {
-    "title": "先别急着兑换已有重置卡 🍞",
-    "text": "新一轮 Banked Reset 预计未来两天有消息，但资格与到账时间不明。按个人 Usage 安排额度，已存的重置卡注意有效期。"
+    "title": "大任务先留着",
+    "text": "看到落地确认后再放开跑被卡住的活，避免刚用完额度就重置。"
   },
   "evidence": [
     {
@@ -299,12 +297,16 @@
   ],
   "pipeline": {
     "state": "ok",
-    "last_attempt_at": "2026-11-18T21:57:11Z",
-    "last_success_at": "2026-11-18T21:57:13Z",
+    "last_attempt_at": "2026-11-19T03:25:50Z",
+    "last_success_at": "2026-11-19T03:25:51Z",
     "provider": "codexreset-news.com public API (third-party archive)",
     "message": "候选原帖已更新；完成/范围仍需人工审核",
     "latest_count": 200,
-    "new_or_changed": 3
+    "new_or_changed": 4,
+    "auto_review": {
+      "confirmed_auto": 0,
+      "rule": "tibo_done + third_party_landed within 24h"
+    }
   },
   "provenance_note": "工程 ZIP 原有历史资料，保留原始状态，不代表本次重新核验。",
   "source_posts": {
@@ -4871,6 +4873,62 @@
       "upstream_channel": "x",
       "quota_verified": false,
       "translation": "@theo 谢谢你 Theo ❤️"
+    },
+    "2123179276199735535": {
+      "id": "2123179276199735535",
+      "published_at": "2026-11-18T22:19:20Z",
+      "text": "@DannyIO It does like math",
+      "url": "https://x.com/thsottiaux/status/2123179276199735535",
+      "kind_hint": "global",
+      "candidate_state": "other",
+      "is_reply": true,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": "@DannyIO 它确实喜欢数学"
+    },
+    "2123175166519992652": {
+      "id": "2123175166519992652",
+      "published_at": "2026-11-18T22:03:01Z",
+      "text": "GPT-6.2 Astra is pretty good at hard things. Here the team shared some results on AMD and Jalapeño chip optimizations.\n\nI do get the feedback on its communication style and we're working on that, but for really the hardest tasks in the world it does seem to be in a league of its own.",
+      "url": "https://x.com/thsottiaux/status/2123175166519992652",
+      "kind_hint": "global",
+      "candidate_state": "other",
+      "is_reply": false,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": "GPT-6.2 Astra 相当擅长难事。团队在这里分享了 AMD 和 Jalapeño 芯片优化的部分成果。\n\n关于它沟通风格的反馈我确实收到了，我们也正在改进；但对于世界上真正最难的任务，它似乎确实独树一帜。"
+    },
+    "2123151267002503570": {
+      "id": "2123151267002503570",
+      "published_at": "2026-11-18T20:28:02Z",
+      "text": "@AdamHoltererer Climbing",
+      "url": "https://x.com/thsottiaux/status/2123151267002503570",
+      "kind_hint": "global",
+      "candidate_state": "other",
+      "is_reply": true,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": "@AdamHoltererer 在攀升"
+    },
+    "2123150581321883811": {
+      "id": "2123150581321883811",
+      "published_at": "2026-11-18T20:25:19Z",
+      "text": "@Leapofcode GG",
+      "url": "https://x.com/thsottiaux/status/2123150581321883811",
+      "kind_hint": "global",
+      "candidate_state": "other",
+      "is_reply": true,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": "@Leapofcode GG（打得好）"
     }
   },
   "review_queue": [
@@ -5574,5 +5632,11 @@
       "quota_verified": false,
       "translation": ""
     }
-  ]
+  ],
+  "stats": {
+    "doneCount": 11,
+    "announcedCount": 1,
+    "trackingStart": "2026-09-26",
+    "note": "次数含人工跟踪历史记录，自动统计已确认/实测事件；非官方口径，以个人 Usage 为准。"
+  }
 }
