@@ -91,7 +91,7 @@ def main():
         p.update({'state':'ok','last_success_at':now(),'message':'候选原帖已更新；完成/范围仍需人工审核','latest_count':len(valid),'new_or_changed':changed})
         # Machine never upgrades observed/confirmed status or promises from words alone.
         # New source posts are visible in a separate queue, so no old event is erased or overwritten.
-        candidates=[x for x in history.values() if x['candidate_state']!='other']
+        candidates=[x for x in history.values() if x['candidate_state']!='other' and not x['quota_verified']]
         candidates.sort(key=lambda x:x['published_at'],reverse=True)
         data['review_queue']=candidates[:50]
         data['mode']='live' # data mode means collection active, NOT verified quota.

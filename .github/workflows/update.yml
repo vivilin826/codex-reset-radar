@@ -28,6 +28,8 @@ jobs:
         run: python -m unittest discover -s tests -v
       - name: Collect third-party candidates (retain data on failure)
         run: python scripts/update.py
+      - name: Apply dual-source auto-review
+        run: python scripts/auto_review.py
       - name: Apply explicitly approved reviews only
         run: python scripts/review.py
       - name: Collection report
