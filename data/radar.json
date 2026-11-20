@@ -297,12 +297,12 @@
   ],
   "pipeline": {
     "state": "ok",
-    "last_attempt_at": "2026-11-19T21:34:55Z",
-    "last_success_at": "2026-11-19T21:34:57Z",
+    "last_attempt_at": "2026-11-20T03:15:50Z",
+    "last_success_at": "2026-11-20T03:15:51Z",
     "provider": "codexreset-news.com public API (third-party archive)",
     "message": "候选原帖已更新；完成/范围仍需人工审核",
     "latest_count": 200,
-    "new_or_changed": 3,
+    "new_or_changed": 4,
     "auto_review": {
       "confirmed_auto": 0,
       "rule": "tibo_done + third_party_landed within 24h"
@@ -4971,6 +4971,62 @@
       "upstream_channel": "x",
       "quota_verified": false,
       "translation": "@_simonsmith Max 是用来跑极限基准测试的"
+    },
+    "2123557171321561133": {
+      "id": "2123557171321561133",
+      "published_at": "2026-11-19T23:20:58Z",
+      "text": "We're also working on a new mobile experience for ChatGPT! \n\nIt's easier to get to your favorite features and discover what you can do in ChatGPT. We're starting with Pro users who have a dot or are eligible to create one. Your dot gets its own tab, and you can pin Codex,",
+      "url": "https://x.com/thsottiaux/status/2123557171321561133",
+      "kind_hint": "global",
+      "candidate_state": "other",
+      "is_reply": false,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": "我们还在为 ChatGPT 打造全新的移动端体验！ \n\n更容易直达你常用的功能、发现 ChatGPT 能做的一切。首先面向拥有 dot 或有资格创建 dot 的 Pro 用户开放。你的 dot 会拥有专属标签页，还可以置顶 Codex，"
+    },
+    "2123556256392847657": {
+      "id": "2123556256392847657",
+      "published_at": "2026-11-19T23:17:19Z",
+      "text": "Heads up, we're starting to test dots with a small number of ChatGPT Plus users. Looking forward to the continued feedback as we expand and I'm recently seeing a lot more positives around how good the proactivity has been after many improvements. \n\nWe're also bringing dots to all",
+      "url": "https://x.com/thsottiaux/status/2123556256392847657",
+      "kind_hint": "global",
+      "candidate_state": "other",
+      "is_reply": false,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": "预告：我们开始向少量 ChatGPT Plus 用户测试 dots。期待扩大范围过程中的持续反馈——经过许多改进后，最近关于主动性表现的好评明显增多。 \n\n我们也会把 dots 带给所有"
+    },
+    "2123527849403674729": {
+      "id": "2123527849403674729",
+      "published_at": "2026-11-19T21:24:27Z",
+      "text": "@theo I still count 6 weeks in the year",
+      "url": "https://x.com/thsottiaux/status/2123527849403674729",
+      "kind_hint": "global",
+      "candidate_state": "other",
+      "is_reply": true,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": "@theo 我算下来一年里还有 6 周"
+    },
+    "2123527632700747862": {
+      "id": "2123527632700747862",
+      "published_at": "2026-11-19T21:23:35Z",
+      "text": "@AdamHoltererer Why did I turn into Dario",
+      "url": "https://x.com/thsottiaux/status/2123527632700747862",
+      "kind_hint": "global",
+      "candidate_state": "other",
+      "is_reply": true,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": "@AdamHoltererer 我怎么变成 Dario 了"
     }
   },
   "review_queue": [
