@@ -297,12 +297,12 @@
   ],
   "pipeline": {
     "state": "ok",
-    "last_attempt_at": "2026-11-20T11:50:51Z",
-    "last_success_at": "2026-11-20T11:50:52Z",
+    "last_attempt_at": "2026-11-20T20:21:24Z",
+    "last_success_at": "2026-11-20T20:21:26Z",
     "provider": "codexreset-news.com public API (third-party archive)",
     "message": "候选原帖已更新；完成/范围仍需人工审核",
     "latest_count": 200,
-    "new_or_changed": 6,
+    "new_or_changed": 4,
     "auto_review": {
       "confirmed_auto": 0,
       "rule": "tibo_done + third_party_landed within 24h"
@@ -5111,6 +5111,62 @@
       "upstream_channel": "x",
       "quota_verified": false,
       "translation": "这就是 ChatGPT 2.0"
+    },
+    "2123867163345961285": {
+      "id": "2123867163345961285",
+      "published_at": "2026-11-20T19:52:45Z",
+      "text": "@DallenFrutchey IS THIS HOW WE COMMUNICATE NOW?",
+      "url": "https://x.com/thsottiaux/status/2123867163345961285",
+      "kind_hint": "global",
+      "candidate_state": "other",
+      "is_reply": true,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": "@DallenFrutchey 我们现在就是这样交流的吗？"
+    },
+    "2123864112694509995": {
+      "id": "2123864112694509995",
+      "published_at": "2026-11-20T19:40:38Z",
+      "text": "First tweet from Akshay. Be nice to this one, he's special.",
+      "url": "https://x.com/thsottiaux/status/2123864112694509995",
+      "kind_hint": "global",
+      "candidate_state": "other",
+      "is_reply": false,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": "Akshay 的第一条推文。对这个特别款好一点。"
+    },
+    "2123861214644347122": {
+      "id": "2123861214644347122",
+      "published_at": "2026-11-20T19:29:07Z",
+      "text": "Team is locked in, upgrade your desktop app. Faster, simpler and a lot more pleasant to use.",
+      "url": "https://x.com/thsottiaux/status/2123861214644347122",
+      "kind_hint": "global",
+      "candidate_state": "other",
+      "is_reply": false,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": "团队状态正佳，快升级你的桌面应用。更快、更简单，用起来舒服多了。"
+    },
+    "2123859787079426435": {
+      "id": "2123859787079426435",
+      "published_at": "2026-11-20T19:23:27Z",
+      "text": "@charliermarsh Actual engineering going on here.",
+      "url": "https://x.com/thsottiaux/status/2123859787079426435",
+      "kind_hint": "global",
+      "candidate_state": "other",
+      "is_reply": true,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": "@charliermarsh 这里正在进行真正的工程工作。"
     }
   },
   "review_queue": [
