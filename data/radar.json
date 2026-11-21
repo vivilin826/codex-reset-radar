@@ -297,12 +297,12 @@
   ],
   "pipeline": {
     "state": "ok",
-    "last_attempt_at": "2026-11-20T20:21:24Z",
-    "last_success_at": "2026-11-20T20:21:26Z",
+    "last_attempt_at": "2026-11-21T02:15:40Z",
+    "last_success_at": "2026-11-21T02:15:41Z",
     "provider": "codexreset-news.com public API (third-party archive)",
     "message": "候选原帖已更新；完成/范围仍需人工审核",
     "latest_count": 200,
-    "new_or_changed": 4,
+    "new_or_changed": 1,
     "auto_review": {
       "confirmed_auto": 0,
       "rule": "tibo_done + third_party_landed within 24h"
@@ -5167,6 +5167,20 @@
       "upstream_channel": "x",
       "quota_verified": false,
       "translation": "@charliermarsh 这里正在进行真正的工程工作。"
+    },
+    "2123901067272618336": {
+      "id": "2123901067272618336",
+      "published_at": "2026-11-20T22:07:29Z",
+      "text": "@theo @maria_rcks But is it true",
+      "url": "https://x.com/thsottiaux/status/2123901067272618336",
+      "kind_hint": "global",
+      "candidate_state": "other",
+      "is_reply": true,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": "@theo @maria_rcks 但这是真的吗"
     }
   },
   "review_queue": [
