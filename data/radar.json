@@ -297,12 +297,12 @@
   ],
   "pipeline": {
     "state": "ok",
-    "last_attempt_at": "2026-11-21T09:55:52Z",
-    "last_success_at": "2026-11-21T09:55:53Z",
+    "last_attempt_at": "2026-11-21T17:33:20Z",
+    "last_success_at": "2026-11-21T17:33:21Z",
     "provider": "codexreset-news.com public API (third-party archive)",
     "message": "候选原帖已更新；完成/范围仍需人工审核",
     "latest_count": 200,
-    "new_or_changed": 2,
+    "new_or_changed": 0,
     "auto_review": {
       "confirmed_auto": 0,
       "rule": "tibo_done + third_party_landed within 24h"
