@@ -297,12 +297,12 @@
   ],
   "pipeline": {
     "state": "ok",
-    "last_attempt_at": "2026-11-21T02:15:40Z",
-    "last_success_at": "2026-11-21T02:15:41Z",
+    "last_attempt_at": "2026-11-21T09:55:52Z",
+    "last_success_at": "2026-11-21T09:55:53Z",
     "provider": "codexreset-news.com public API (third-party archive)",
     "message": "候选原帖已更新；完成/范围仍需人工审核",
     "latest_count": 200,
-    "new_or_changed": 1,
+    "new_or_changed": 2,
     "auto_review": {
       "confirmed_auto": 0,
       "rule": "tibo_done + third_party_landed within 24h"
@@ -5181,6 +5181,34 @@
       "upstream_channel": "x",
       "quota_verified": false,
       "translation": "@theo @maria_rcks 但这是真的吗"
+    },
+    "2123998117561532424": {
+      "id": "2123998117561532424",
+      "published_at": "2026-11-21T04:33:07Z",
+      "text": "@DylanMcD8 DYLAN, HI! 👋",
+      "url": "https://x.com/thsottiaux/status/2123998117561532424",
+      "kind_hint": "global",
+      "candidate_state": "other",
+      "is_reply": true,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": "@DylanMcD8 DYLAN，你好呀！👋"
+    },
+    "2123997735326232775": {
+      "id": "2123997735326232775",
+      "published_at": "2026-11-21T04:31:36Z",
+      "text": "We've been messing around a bit and inadvertently created an experience that's a bit too fun internally and now everyone is just having fun instead of working. We might not recover from this.",
+      "url": "https://x.com/thsottiaux/status/2123997735326232775",
+      "kind_hint": "global",
+      "candidate_state": "other",
+      "is_reply": false,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": "我们稍微折腾了一下，不小心在内部做出了一个好玩得有点过头的体验，现在所有人都在玩而不干活了。我们可能再也回不去了。"
     }
   },
   "review_queue": [
