@@ -297,12 +297,12 @@
   ],
   "pipeline": {
     "state": "ok",
-    "last_attempt_at": "2026-11-21T23:17:11Z",
-    "last_success_at": "2026-11-21T23:17:12Z",
+    "last_attempt_at": "2026-11-22T03:17:09Z",
+    "last_success_at": "2026-11-22T03:17:09Z",
     "provider": "codexreset-news.com public API (third-party archive)",
     "message": "候选原帖已更新；完成/范围仍需人工审核",
     "latest_count": 200,
-    "new_or_changed": 0,
+    "new_or_changed": 1,
     "auto_review": {
       "confirmed_auto": 0,
       "rule": "tibo_done + third_party_landed within 24h"
@@ -5209,6 +5209,20 @@
       "upstream_channel": "x",
       "quota_verified": false,
       "translation": "我们稍微折腾了一下，不小心在内部做出了一个好玩得有点过头的体验，现在所有人都在玩而不干活了。我们可能再也回不去了。"
+    },
+    "2124277855131664869": {
+      "id": "2124277855131664869",
+      "published_at": "2026-11-21T23:04:42Z",
+      "text": "Going to check out this threads thing",
+      "url": "https://x.com/thsottiaux/status/2124277855131664869",
+      "kind_hint": "global",
+      "candidate_state": "other",
+      "is_reply": false,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": "打算去试试这个 threads 东西"
     }
   },
   "review_queue": [
