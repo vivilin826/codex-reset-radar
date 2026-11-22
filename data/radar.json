@@ -297,8 +297,8 @@
   ],
   "pipeline": {
     "state": "ok",
-    "last_attempt_at": "2026-11-22T03:17:09Z",
-    "last_success_at": "2026-11-22T03:17:09Z",
+    "last_attempt_at": "2026-11-22T11:39:31Z",
+    "last_success_at": "2026-11-22T11:39:31Z",
     "provider": "codexreset-news.com public API (third-party archive)",
     "message": "候选原帖已更新；完成/范围仍需人工审核",
     "latest_count": 200,
@@ -5223,6 +5223,20 @@
       "upstream_channel": "x",
       "quota_verified": false,
       "translation": "打算去试试这个 threads 东西"
+    },
+    "2124322968499282388": {
+      "id": "2124322968499282388",
+      "published_at": "2026-11-22T02:03:58Z",
+      "text": "Team is already preparing another big update, but how are things since yesterday’s update to the ChatGPT/Codex desktop app? What still requires attention and is not quite there?",
+      "url": "https://x.com/thsottiaux/status/2124322968499282388",
+      "kind_hint": "global",
+      "candidate_state": "other",
+      "is_reply": false,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": "团队已在准备又一次大更新；昨天的 ChatGPT/Codex 桌面应用更新后用得怎么样？还有哪些地方仍需关注、还没做到位？"
     }
   },
   "review_queue": [
