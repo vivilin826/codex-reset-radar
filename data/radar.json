@@ -297,8 +297,8 @@
   ],
   "pipeline": {
     "state": "ok",
-    "last_attempt_at": "2026-11-22T19:41:34Z",
-    "last_success_at": "2026-11-22T19:41:35Z",
+    "last_attempt_at": "2026-11-23T00:54:02Z",
+    "last_success_at": "2026-11-23T00:54:03Z",
     "provider": "codexreset-news.com public API (third-party archive)",
     "message": "候选原帖已更新；完成/范围仍需人工审核",
     "latest_count": 200,
