@@ -297,12 +297,12 @@
   ],
   "pipeline": {
     "state": "ok",
-    "last_attempt_at": "2026-11-23T09:06:33Z",
-    "last_success_at": "2026-11-23T09:06:34Z",
+    "last_attempt_at": "2026-11-23T21:26:26Z",
+    "last_success_at": "2026-11-23T21:26:27Z",
     "provider": "codexreset-news.com public API (third-party archive)",
     "message": "候选原帖已更新；完成/范围仍需人工审核",
     "latest_count": 200,
-    "new_or_changed": 0,
+    "new_or_changed": 3,
     "auto_review": {
       "confirmed_auto": 0,
       "rule": "tibo_done + third_party_landed within 24h"
@@ -5237,6 +5237,48 @@
       "upstream_channel": "x",
       "quota_verified": false,
       "translation": "团队已在准备又一次大更新；昨天的 ChatGPT/Codex 桌面应用更新后用得怎么样？还有哪些地方仍需关注、还没做到位？"
+    },
+    "2124923142762361133": {
+      "id": "2124923142762361133",
+      "published_at": "2026-11-23T17:48:51Z",
+      "text": "@charliermarsh Charlie is in the hunt",
+      "url": "https://x.com/thsottiaux/status/2124923142762361133",
+      "kind_hint": "global",
+      "candidate_state": "other",
+      "is_reply": true,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": "@charliermarsh Charlie 也加入了追逐"
+    },
+    "2124923055072043052": {
+      "id": "2124923055072043052",
+      "published_at": "2026-11-23T17:48:30Z",
+      "text": "Inside OpenAI, dots are quickly becoming the primary way to get things done. We have dots building the dots system.",
+      "url": "https://x.com/thsottiaux/status/2124923055072043052",
+      "kind_hint": "global",
+      "candidate_state": "other",
+      "is_reply": false,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": "在 OpenAI 内部，dots 正迅速成为完成任务的主要方式。我们有 dots 在构建 dots 系统本身。"
+    },
+    "2124922412219486443": {
+      "id": "2124922412219486443",
+      "published_at": "2026-11-23T17:45:56Z",
+      "text": "Sign up for ChatGPT Business: https://t.co/2WH7P7Yx7L",
+      "url": "https://x.com/thsottiaux/status/2124922412219486443",
+      "kind_hint": "global",
+      "candidate_state": "other",
+      "is_reply": true,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": "注册 ChatGPT Business：https://t.co/2WH7P7Yx7L"
     }
   },
   "review_queue": [
