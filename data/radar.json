@@ -297,12 +297,12 @@
   ],
   "pipeline": {
     "state": "ok",
-    "last_attempt_at": "2026-11-23T21:26:26Z",
-    "last_success_at": "2026-11-23T21:26:27Z",
+    "last_attempt_at": "2026-11-24T06:03:49Z",
+    "last_success_at": "2026-11-24T06:03:50Z",
     "provider": "codexreset-news.com public API (third-party archive)",
     "message": "候选原帖已更新；完成/范围仍需人工审核",
     "latest_count": 200,
-    "new_or_changed": 3,
+    "new_or_changed": 2,
     "auto_review": {
       "confirmed_auto": 0,
       "rule": "tibo_done + third_party_landed within 24h"
@@ -5279,6 +5279,34 @@
       "upstream_channel": "x",
       "quota_verified": false,
       "translation": "注册 ChatGPT Business：https://t.co/2WH7P7Yx7L"
+    },
+    "2125027477877887231": {
+      "id": "2125027477877887231",
+      "published_at": "2026-11-24T00:43:26Z",
+      "text": "Worth listening to if you're curious what goes on in the minds of the people at OpenAI who are obsessively trying to patch all the flaws in OSS software and infrastructure we all rely on",
+      "url": "https://x.com/thsottiaux/status/2125027477877887231",
+      "kind_hint": "global",
+      "candidate_state": "other",
+      "is_reply": false,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": "如果你好奇 OpenAI 里那些痴迷于修补我们都依赖的开源软件与基础设施缺陷的人脑子里在想什么，值得一听"
+    },
+    "2124998553856844186": {
+      "id": "2124998553856844186",
+      "published_at": "2026-11-23T22:48:30Z",
+      "text": "You should feel a significant jump in quality of answers on ChatGPT once rolled out to you.\n\nTogether with all the investments we are making across simplifying the app, making it faster and merging chat & work, it's going to be quite the improvement in day to day experience by the end of the year.",
+      "url": "https://x.com/thsottiaux/status/2124998553856844186",
+      "kind_hint": "global",
+      "candidate_state": "other",
+      "is_reply": false,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": "等推送到你那里时，你应该会感受到 ChatGPT 回答质量的显著跃升。连同我们正在进行的各项投入——简化应用、提速、合并 chat 与 work——到年底，日常体验将会有相当大的改善。"
     }
   },
   "review_queue": [
