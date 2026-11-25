@@ -297,12 +297,12 @@
   ],
   "pipeline": {
     "state": "ok",
-    "last_attempt_at": "2026-11-25T12:56:27Z",
-    "last_success_at": "2026-11-25T12:56:28Z",
+    "last_attempt_at": "2026-11-25T22:33:29Z",
+    "last_success_at": "2026-11-25T22:33:29Z",
     "provider": "codexreset-news.com public API (third-party archive)",
     "message": "候选原帖已更新；完成/范围仍需人工审核",
     "latest_count": 200,
-    "new_or_changed": 7,
+    "new_or_changed": 2,
     "auto_review": {
       "confirmed_auto": 0,
       "rule": "tibo_done + third_party_landed within 24h"
@@ -5405,6 +5405,34 @@
       "upstream_channel": "x",
       "quota_verified": false,
       "translation": "我们正在与 Cisco 合作，打造我们认为将成为网络安全新时代关键基础设施原语的东西。一切都必须构建得能由对齐的代理以机器速度安全地运行。"
+    },
+    "2125678401541583217": {
+      "id": "2125678401541583217",
+      "published_at": "2026-11-25T19:49:58Z",
+      "text": "@charliermarsh This man is unstoppable",
+      "url": "https://x.com/thsottiaux/status/2125678401541583217",
+      "kind_hint": "global",
+      "candidate_state": "other",
+      "is_reply": true,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": "@charliermarsh 这人根本停不下来"
+    },
+    "2125678021848019454": {
+      "id": "2125678021848019454",
+      "published_at": "2026-11-25T19:48:28Z",
+      "text": "@trq212 Welcome to the team! So much to do 👀",
+      "url": "https://x.com/thsottiaux/status/2125678021848019454",
+      "kind_hint": "global",
+      "candidate_state": "other",
+      "is_reply": true,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": "@trq212 欢迎加入团队！有太多事要做了 👀"
     }
   },
   "review_queue": [
