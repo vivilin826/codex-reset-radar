@@ -297,8 +297,8 @@
   ],
   "pipeline": {
     "state": "ok",
-    "last_attempt_at": "2026-11-26T05:05:28Z",
-    "last_success_at": "2026-11-26T05:05:29Z",
+    "last_attempt_at": "2026-11-26T15:17:36Z",
+    "last_success_at": "2026-11-26T15:17:37Z",
     "provider": "codexreset-news.com public API (third-party archive)",
     "message": "候选原帖已更新；完成/范围仍需人工审核",
     "latest_count": 200,
@@ -5447,9 +5447,37 @@
       "upstream_channel": "x",
       "quota_verified": false,
       "translation": "我们在 GPT-6.2 发布时犯了一个计费错误，错误地对大多数用户的 GPT-6.2 Astra 和 Sol 用量打了折。现已修复，因此同样的工作将消耗更多套餐用量额度。与上周相比，你将在 GPT-6.2 Astra 上快 40%、在 Sol 上快 25% 触达限额。相比 6 Astra 和 6.1 Sol，这些模型的用量仍应更耐用。其他模型不受影响，我们也不会就过去的差额向你收费。作为对此错误致歉的小小心意，我们将为所有 Go、Plus、Pro 和 Business 用户额外添加一次 banked 重置。"
+    },
+    "2125853628250599730": {
+      "id": "2125853628250599730",
+      "published_at": "2026-11-26T07:26:16Z",
+      "text": "Banked reset is online",
+      "url": "https://x.com/thsottiaux/status/2125853628250599730",
+      "kind_hint": "banked",
+      "candidate_state": "context_candidate",
+      "is_reply": false,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": "重置卡已上线。"
     }
   },
   "review_queue": [
+    {
+      "id": "2125853628250599730",
+      "published_at": "2026-11-26T07:26:16Z",
+      "text": "Banked reset is online",
+      "url": "https://x.com/thsottiaux/status/2125853628250599730",
+      "kind_hint": "banked",
+      "candidate_state": "context_candidate",
+      "is_reply": false,
+      "original_verification": "agent_direct_view",
+      "upstream_source": "https://x.com/thsottiaux",
+      "upstream_channel": "x",
+      "quota_verified": false,
+      "translation": "重置卡已上线。"
+    },
     {
       "id": "2125784147889393806",
       "published_at": "2026-11-26T02:50:10Z",
@@ -6129,20 +6157,6 @@
       "url": "https://x.com/thsottiaux/status/2098685367058612394",
       "kind_hint": "global",
       "candidate_state": "confirmation_candidate",
-      "is_reply": false,
-      "original_verification": "third_party_copy",
-      "upstream_source": "https://codex-reset.com/",
-      "upstream_channel": "timeline",
-      "quota_verified": false,
-      "translation": ""
-    },
-    {
-      "id": "2097752790177370535",
-      "published_at": "2026-09-09T18:23:34Z",
-      "text": "Some banked resets did not fully apply in ChatGPT Work and Codex that morning; everyone who used one in the affected window gets another one plus an apology email.",
-      "url": "https://x.com/thsottiaux/status/2097752790177370535",
-      "kind_hint": "banked",
-      "candidate_state": "context_candidate",
       "is_reply": false,
       "original_verification": "third_party_copy",
       "upstream_source": "https://codex-reset.com/",
