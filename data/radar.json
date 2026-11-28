@@ -3,25 +3,20 @@
   "verified_at": "2026-10-31T06:15:00Z",
   "status": {
     "emoji": "🎟️",
-    "key": "announced",
-    "title": "Day 26：未来两天 Banked Reset 预告",
-    "description": "预告尚未双来源落地确认，窗口可能变化。"
+    "key": "reset",
+    "title": "11 月 26 日重置卡已上线",
+    "description": "Go、Plus、Pro、Business 用户各获一张可留待之后使用的重置卡。北京时间 15:26 为公告时间，个人是否收到以 Codex Usage 为准。"
   },
-  "forecast": {
-    "label": "明确预告 · Banked",
-    "confidence": "预告可信度：待双来源确认",
-    "window": "10 月 31 日—11 月 2 日重点关注",
-    "reason": "Tibo 在 Day 26 帖子中说未来两天会有 banked resets。原文没有确认具体资格、套餐及生效时刻。这个观察区间是对相对日期的宽泛换算；实际到账须以新的完成帖或个人 Usage 确认。"
-  },
+  "forecast": {},
   "last_reset": {
-    "display": "10 月 28 日 14:29",
-    "description": "Tibo 发帖确认完成 · 北京时间（公开完成确认 ≠ 个人到账时刻）",
-    "type": "Full Reset",
-    "explanation": "10 月 31 日 Banked 仍处于预告状态"
+    "display": "11 月 26 日 15:26",
+    "description": "Tibo 确认上线",
+    "type": "Banked 重置卡",
+    "explanation": "Go、Plus、Pro、Business 用户各获一张可留待之后使用的重置卡。北京时间 15:26 为公告时间，个人是否收到以 Codex Usage 为准。"
   },
   "advice": {
-    "title": "大任务先留着",
-    "text": "看到落地确认后再放开跑被卡住的活，避免刚用完额度就重置。"
+    "title": "查看你的重置卡",
+    "text": "打开 Codex Usage 查看可用重置卡，可留到需要时再使用。"
   },
   "evidence": [
     {
@@ -42,6 +37,18 @@
     }
   ],
   "events": [
+    {
+      "id": "2125853628250599730",
+      "title": "11 月 26 日重置卡已上线",
+      "type": "banked",
+      "type_label": "Banked 重置卡",
+      "status": "confirmed",
+      "status_label": "Tibo 确认上线",
+      "published_at": "2026-11-26T07:26:16Z",
+      "effective_at": "2026-11-26T07:26:16Z",
+      "summary": "Go、Plus、Pro、Business 用户各获一张可留待之后使用的重置卡。北京时间 15:26 为公告时间，个人是否收到以 Codex Usage 为准。",
+      "source_url": "https://x.com/thsottiaux/status/2125853628250599730"
+    },
     {
       "id": "2116405414921384099",
       "title": "Day 26：未来两天 Banked Reset 预告",
@@ -297,8 +304,8 @@
   ],
   "pipeline": {
     "state": "ok",
-    "last_attempt_at": "2026-11-27T19:28:30Z",
-    "last_success_at": "2026-11-27T19:28:31Z",
+    "last_attempt_at": "2026-11-28T01:35:27Z",
+    "last_success_at": "2026-11-28T01:35:28Z",
     "provider": "codexreset-news.com public API (third-party archive)",
     "message": "候选原帖已更新；完成/范围仍需人工审核",
     "latest_count": 200,
@@ -6166,7 +6173,7 @@
     }
   ],
   "stats": {
-    "doneCount": 11,
+    "doneCount": 12,
     "announcedCount": 1,
     "trackingStart": "2026-09-26",
     "note": "次数含人工跟踪历史记录，自动统计已确认/实测事件；非官方口径，以个人 Usage 为准。"
