@@ -112,7 +112,17 @@ def project(data, events):
     confirmed_events = [e for e in ordered if e.get('status') in CONFIRMED_STATUSES]
     pending_predictions = [p for p in data.get('predictions', []) if p.get('status') == 'pending']
 
-    if latest and latest.get('status') in CONFIRMED_STATUSES:
+    if latest and latest.get('status') in CONFIRMED_STATUSES and latest.get('type') == 'banked':
+        data['status'] = {'emoji': '🎟️', 'key': 'reset', 'title': latest['title'], 'description': latest['summary']}
+        data['last_reset'] = {
+            'display': cn_display(latest.get('published_at')),
+            'description': latest.get('status_label') or '重置卡确认上线',
+            'type': latest.get('type_label') or 'Banked 重置卡',
+            'explanation': latest['summary'],
+        }
+        data['forecast'] = {}
+        data['advice'] = {'title': '查看你的重置卡', 'text': '打开 Codex Usage 查看可用重置卡，可留到需要时再使用。'}
+    elif latest and latest.get('status') in CONFIRMED_STATUSES:
         data['status'] = {
             'emoji': '✅', 'key': 'reset',
             'title': '已确认发放重置',

@@ -1,4 +1,16 @@
 {
-  "approved": [],
+  "approved": [
+    {
+      "id": "2125853628250599730",
+      "title": "11 月 26 日重置卡已上线",
+      "type": "banked",
+      "type_label": "Banked 重置卡",
+      "status": "confirmed",
+      "status_label": "Tibo 确认上线",
+      "effective_at": "2026-11-26T07:26:16Z",
+      "summary": "Go、Plus、Pro、Business 用户各获一张可留待之后使用的重置卡。北京时间 15:26 为公告时间，个人是否收到以 Codex Usage 为准。",
+      "source_url": "https://x.com/thsottiaux/status/2125853628250599730"
+    }
+  ],
   "_instructions": "New posts go to site/data/radar.json review_queue; manually verify original link, timing, plans, reset type, then put approved entries here. Add homepage forecast/status only after independently verified. Do not guess actual individual quota times."
 }

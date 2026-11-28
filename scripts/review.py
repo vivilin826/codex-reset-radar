@@ -19,6 +19,9 @@ for approval in reviews.get('approved',[]):
        'source_url':post['url']}
     if existing:existing.update(event)
     else:obj['events'].insert(0,event)
+if reviews.get('approved'):
+    from auto_review import project
+    project(obj, obj['events'])
 # Optional manual projection—approved forecast and completion must be independently justified.
 projection=reviews.get('homepage')
 if projection:
